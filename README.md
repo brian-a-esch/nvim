@@ -22,3 +22,10 @@ There are a lot of todos to get this to a fully operational editor
 - Debugging
     - This is a bit unexplored atm. Tools I've seen are `DAP` and `Dlv`, but I am not sure what they do
 
+
+### Installed
+These are the things I have installed on the system
+- [packer](https://github.com/wbthomason/packer.nvim) a package management tool for nvim
+- [fzf](https://github.com/junegunn/fzf) a command line fuzzy search tool
+- [clangd](https://clangd.llvm.org/) a C/C++ LSP server
+- In the `tools/` directory I cloned [getnf](https://github.com/ronniedroid/getnf) to get a [nerd font](https://github.com/ryanoasis/nerd-fonts). I selected the `JetBrainsMono` font
