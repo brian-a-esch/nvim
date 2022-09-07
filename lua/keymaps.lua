@@ -40,3 +40,6 @@ keymap("n", "K", ":bnext<CR>", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+-- Toggle NvimTree
+keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
