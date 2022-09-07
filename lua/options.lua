@@ -25,3 +25,6 @@ vim.o.shiftwidth = 4
 
 -- Auto completion for vim "comamnds" (in things in prompt after entering ':')
 vim.o.wildmode = "longest:full"
+
+-- Turn mouse on in all modes
+vim.o.mouse = 'a'
