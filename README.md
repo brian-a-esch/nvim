@@ -4,7 +4,6 @@ There are a lot of todos to get this to a fully operational editor
     - The docs recommend symlinking the compilation commands for each project. This seems very not ideal to me, since I'd have a dirty git tree for every project I want to get auto completion for. I'd like to figure out a scheme where I can add a "projects.lua" file with the appropriate overrides for every project on the computer. 
 - Syntax highlighting, needed so user defined types stand out
     - I think `treesitter` is the app to do this, still need to configure
-- Buffer management, need clean way for tabs to work
 - Search
     - Needed features
 	- Load files by name
