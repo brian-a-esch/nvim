@@ -43,3 +43,5 @@ keymap("v", ">", ">gv", opts)
 
 -- Toggle NvimTree
 keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
+-- Load current file in NvimTree
+keymap("n", "<leader>r", ":NvimTreeFindFile<CR>", opts)

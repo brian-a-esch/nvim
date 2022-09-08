@@ -1,1 +1,54 @@
-require('nvim-tree').setup{}
+local nvim_tree = require('nvim-tree')
+local tree_cb = require('nvim-tree.config').nvim_tree_callback
+
+nvim_tree.setup{
+    -- have cursor start at the begining of the file name
+    hijack_cursor = true,
+    -- redraw tree by longest line
+    adaptive_size = true,
+    -- Close when buffers are closed
+    auto_close = true,
+    renderer = {
+        root_folder_modifier = ":t",
+        icons = {
+            glyphs = {
+                default = "",
+                symlink = "",
+                folder = {
+                    arrow_open = "",
+                    arrow_closed = "",
+                    default = "",
+                    open = "",
+                    empty = "",
+                    empty_open = "",
+                    symlink = "",
+                    symlink_open = "",
+                },
+                git = {
+	            unstaged = "",
+                    staged = "S",
+                    unmerged = "",
+                    renamed = "➜",
+                    untracked = "U",
+                    deleted = "",
+                    ignored = "◌",
+                },
+            },
+        },
+    },
+    view = {
+        width = 30,
+        height = 30,
+        side = "left",
+        mappings = {
+            list = {
+		{ key = { "<CR>", "o" }, cb = tree_cb "edit" },
+		{ key = "h", cb = tree_cb "close_node" },
+		{ key = "l", cb = tree_cb "open_node" },
+		{ key = "v", cb = tree_cb "vsplit" },
+		{ key = "H", cb = tree_cb "collapse_all" },
+		{ key = "L", cb = tree_cb "expand_all" },
+            },
+        },
+    },
+}
