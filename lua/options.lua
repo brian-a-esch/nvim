@@ -1,5 +1,3 @@
--- When entering commands in the prompt, ignore case
-vim.o.ignorecase = true
 -- Enables 24 bit rgb colors
 vim.o.termguicolors = true
 -- Write swap file to disk every 100ms
