@@ -4,10 +4,6 @@ local tree_cb = require('nvim-tree.config').nvim_tree_callback
 nvim_tree.setup{
     -- have cursor start at the begining of the file name
     hijack_cursor = true,
-    -- redraw tree by longest line
-    adaptive_size = true,
-    -- Close when buffers are closed
-    auto_close = true,
     renderer = {
         root_folder_modifier = ":t",
         icons = {
@@ -37,6 +33,8 @@ nvim_tree.setup{
         },
     },
     view = {
+	-- redraw tree by longest line
+	adaptive_size = true,
         width = 30,
         height = 30,
         side = "left",
