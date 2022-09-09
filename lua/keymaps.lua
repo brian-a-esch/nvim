@@ -45,3 +45,10 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 -- Load current file in NvimTree
 keymap("n", "<leader>r", ":NvimTreeFindFile<CR>", opts)
+
+-- Telescope
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+
