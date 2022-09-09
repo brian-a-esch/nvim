@@ -20,8 +20,8 @@ vim.o.scrolloff = 8
 -- and add language specific overloads. I wonder how this will work for project
 -- specific overloads though?
 vim.o.tabstop = 8
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
 
 -- Auto completion for vim "comamnds" (in things in prompt after entering ':')
 vim.o.wildmode = "longest:full"
