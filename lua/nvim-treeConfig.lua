@@ -6,6 +6,8 @@ nvim_tree.setup{
     hijack_cursor = true,
     renderer = {
         root_folder_modifier = ":t",
+	-- Don't follow symlinks, leads to really wide file tree
+	symlink_destination = false,
         icons = {
             glyphs = {
                 default = "",
