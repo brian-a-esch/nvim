@@ -10,4 +10,9 @@ return require('packer').startup(function(use)
 	use { 'nvim-treesitter/nvim-treesitter', run = function() require('nvim-treesitter.install').update({ with_sync = true }) end }
 	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} } }
 	use { 'akinsho/toggleterm.nvim', tag = '*' }
+
+	-- Auto completion tools. There are things for snippets, in buffer completion. Not sure I want that atm
+	use { 'hrsh7th/nvim-cmp' }
+	use { 'hrsh7th/cmp-nvim-lsp' }
+	use { 'hrsh7th/cmp-buffer' }
 end)
