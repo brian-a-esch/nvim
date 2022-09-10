@@ -6,10 +6,13 @@ There are a lot of todos to get this to a fully operational editor
     - Works with the language server, but I'd like a more expansive view. But I'd still like to see the display options out there
 - Code navigation
     - Move cursor to previous/next location across buffers
+    - Move between .h and .cpp
 - Vim General
     - Easy way to close project
     - Delete buffers easily; by name and current open. All without messing up splits
     - 80 character line for C++. Maybe 120 for other languages?
+    - Different opening screen for a project
+    - Figure out how to remove highlighting after search, without removing highlighting all together
 - Git integration
     - gitsigns is a tool that at least gives the "this line has been edited" view
     - would love some sort of diff tool with a meld like view
