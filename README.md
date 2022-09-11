@@ -26,6 +26,10 @@ There are a lot of todos to get this to a fully operational editor
     - C++ needs clang format, but to be scoped based on project?
     - Lua needs something else
     - If I get those set up can I restore four space tabs?
+- Viewing the call tree
+    - https://github.com/ldelossa/litee-calltree.nvim
+    - Write my own?
+
 
 
 ### Installed
