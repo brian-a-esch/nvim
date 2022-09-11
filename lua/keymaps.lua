@@ -51,4 +51,7 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+-- This requires the lsp, and kind of overrides the "g" key "namespace" which
+-- is kind of just used for the lsp commands. But if works really nice
+keymap("n", "gr",  ":Telescope lsp_references initial_mode='normal'<CR>", opts)
 
