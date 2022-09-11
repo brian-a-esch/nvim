@@ -1,5 +1,10 @@
 local cmp = require('cmp')
 
+local check_backspace = function()
+  local col = vim.fn.col(".") - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+end
+
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
     -- Accept currently selected item. If none selected, `select` first item.
