@@ -6,10 +6,30 @@ local check_backspace = function()
 end
 
 cmp.setup({
+  snippet = {
+    -- TODO get an actual snippet engine, this is just from their docs
+    -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#no-snippet-plugin
+    -- We recommend using *actual* snippet engine.
+    -- It's a simple implementation so it might not work in some of the cases.
+    expand = function(args) end,
+  },
   mapping = cmp.mapping.preset.insert({
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    --["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+    ["<CR>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+	cmp.close()
+      else
+	fallback()
+      end
+    end, { "i", "s" }),
+    --["<CR>"] = cmp.maabort(function(fallback) 
+      --if cmp.visible() then
+	--cmp.select_next_item()
+      --end
+      --cmp.close()
+    --end, { "i", "s" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
 	cmp.select_next_item()
@@ -28,8 +48,8 @@ cmp.setup({
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
+      --elseif luasnip.jumpable(-1) then
+        --luasnip.jump(-1)
       else
         fallback()
       end
@@ -44,7 +64,7 @@ cmp.setup({
 
   formatting = {
     fields = { "abbr", "kind", "menu" },
-    format = function(entry, vim_item) 
+    format = function(entry, vim_item)
       -- NOTE: order matters
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
