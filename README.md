@@ -39,3 +39,5 @@ These are the things I have installed on the system
 - [clangd](https://clangd.llvm.org/) a C/C++ LSP server
 - In the `tools/` directory I cloned [getnf](https://github.com/ronniedroid/getnf) to get a [nerd font](https://github.com/ryanoasis/nerd-fonts). I selected the `JetBrainsMono` font
 - [lua-language-server](https://github.com/sumneko/lua-language-server) using a pre built binary found in their releases. Work computer uses version 3.5.5 
+- [ripgrep](https://github.com/BurntSushi/ripgrep) using a binary on github, `ripgrep_13.0.0_amd64.deb`
+- [fd](https://github.com/sharkdp/fd) using a binary on github, `fd-musl_8.4.0_amd64.deb`
