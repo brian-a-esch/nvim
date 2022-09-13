@@ -38,3 +38,4 @@ These are the things I have installed on the system
 - [fzf](https://github.com/junegunn/fzf) a command line fuzzy search tool
 - [clangd](https://clangd.llvm.org/) a C/C++ LSP server
 - In the `tools/` directory I cloned [getnf](https://github.com/ronniedroid/getnf) to get a [nerd font](https://github.com/ryanoasis/nerd-fonts). I selected the `JetBrainsMono` font
+- [lua-language-server](https://github.com/sumneko/lua-language-server) using a pre built binary found in their releases. Work computer uses version 3.5.5 
