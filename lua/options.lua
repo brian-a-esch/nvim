@@ -26,3 +26,6 @@ vim.o.wildmode = "longest:full"
 
 -- Turn mouse on in all modes
 vim.o.mouse = 'a'
+
+-- Use 81 since we want to limit to 80 chars
+vim.o.colorcolumn = "81"

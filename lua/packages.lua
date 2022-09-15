@@ -15,4 +15,7 @@ return require('packer').startup(function(use)
 	use { 'hrsh7th/nvim-cmp' }
 	use { 'hrsh7th/cmp-nvim-lsp' }
 	use { 'hrsh7th/cmp-buffer' }
+
+	-- Gets a single char color column
+	use "lukas-reineke/virt-column.nvim"
 end)
