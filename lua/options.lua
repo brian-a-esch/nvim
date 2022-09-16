@@ -29,3 +29,6 @@ vim.o.mouse = 'a'
 
 -- Use 81 since we want to limit to 80 chars
 vim.o.colorcolumn = "81"
+
+-- Highlight the line the cursor is on
+vim.o.cursorline = true
