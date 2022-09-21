@@ -45,7 +45,8 @@ M.on_attach = function(client, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'gh', vim.lsp.buf.hover, bufopts)
+  -- I think we get this by the autocmd setup
+  --vim.keymap.set('n', 'gh', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   -- This is what it is in clion, maybe change?
   vim.keymap.set('i', '<C-p>', vim.lsp.buf.signature_help, bufopts)
@@ -61,12 +62,14 @@ M.on_attach = function(client, bufnr)
   vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
   -- Using telescope for this 
   --vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  
+
   vim.keymap.set('n', 'gQ', vim.lsp.buf.formatting, bufopts)
   -- range_formatting selects from last visual selection. Hence the escape at the beginning
   vim.keymap.set('v', 'gq', '<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>', bufopts)
 
   vim.api.nvim_command('autocmd CursorHold <buffer> lua vim.diagnostic.open_float(0, { scope = "line" })')
+
+  vim.keymap.set('n', 'gh', ':ClangdSwitchSourceHeader<CR>', bufopts)
 end
 
 return M
