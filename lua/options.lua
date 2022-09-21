@@ -32,3 +32,8 @@ vim.o.colorcolumn = "81"
 
 -- Highlight the line the cursor is on
 vim.o.cursorline = true
+
+-- Always show column to the left of the line numbers, (i.e. for gitsigns
+-- or the language server diagnostics). Prevents jittering while editting
+vim.o.signcolumn = "yes"
+

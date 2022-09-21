@@ -18,4 +18,6 @@ return require('packer').startup(function(use)
 
 	-- Gets a single char color column
 	use "lukas-reineke/virt-column.nvim"
+
+	use "lewis6991/gitsigns.nvim"
 end)
