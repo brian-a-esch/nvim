@@ -22,4 +22,6 @@ return require('packer').startup(function(use)
 	use "lewis6991/gitsigns.nvim"
 
 	use 'skywind3000/asyncrun.vim'
+
+	use 'j-hui/fidget.nvim'
 end)
