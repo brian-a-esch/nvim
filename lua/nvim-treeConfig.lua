@@ -38,7 +38,6 @@ nvim_tree.setup{
 	-- redraw tree by longest line
 	adaptive_size = true,
         width = 30,
-        height = 30,
         side = "left",
         mappings = {
             list = {
