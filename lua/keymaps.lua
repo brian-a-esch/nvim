@@ -56,3 +56,13 @@ keymap("n", "<leader>fc", ":Telescope command_history <CR>", opts)
 -- is kind of just used for the lsp commands. But if works really nice
 keymap("n", "gr",  ":Telescope lsp_references silent=true <CR>", opts)
 
+-- Quickfix menu, open on bottom of screen
+keymap("n", "<leader>bo", ":botright copen 30<CR>", opts)
+keymap("n", "<leader>bc", ":cclose <CR>", opts)
+-- Do not add quickfix list to the buffer list. This makes it so
+-- swithcing between buffers does not include quickfix list. The
+-- quickfix list can still be found by ":ls!" if really needed.
+vim.api.nvim_create_autocmd({"FileType"}, {
+  pattern = "qf",
+  command = "set nobuflisted",
+})
