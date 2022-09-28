@@ -24,4 +24,6 @@ return require('packer').startup(function(use)
 	use 'skywind3000/asyncrun.vim'
 
 	use 'j-hui/fidget.nvim'
+
+	use 'windwp/nvim-autopairs'
 end)
