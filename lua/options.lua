@@ -9,7 +9,7 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 -- Keep cursor from getting to the top or bottom of buffer
 vim.o.scrolloff = 8
--- Have tabs appear as four spaces, keeping tabstop at 8 though.
+-- Have tabs be treated as 2 spaces
 -- doc recommendations https://neovim.io/doc/user/options.html#'tabstop'
 -- I don't know how this will play with other langauges. For example some
 -- projects use 2 spaces for indent. golang projects work with tabs for the
@@ -17,9 +17,9 @@ vim.o.scrolloff = 8
 -- I can add nvim/ftplugin/[filetype].lua (so cpp.lua or something like that)
 -- and add language specific overloads. I wonder how this will work for project
 -- specific overloads though?
-vim.o.tabstop = 8
-vim.o.softtabstop = 2
+vim.o.tabstop = 2
 vim.o.shiftwidth = 2
+vim.o.expandtab = false
 
 -- Auto completion for vim "comamnds" (in things in prompt after entering ':')
 vim.o.wildmode = "longest:full"
