@@ -19,7 +19,7 @@ vim.o.scrolloff = 8
 -- specific overloads though?
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
-vim.o.expandtab = false
+vim.o.expandtab = true
 
 -- Auto completion for vim "comamnds" (in things in prompt after entering ':')
 vim.o.wildmode = "longest:full"
