@@ -6,7 +6,7 @@ require('illuminate').configure({
     'regex',
   },
   -- in milliseconds
-  delay= 100,
+  delay= 300,
 })
 
 -- Colors are found here:
