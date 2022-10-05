@@ -4,6 +4,8 @@ vim.o.termguicolors = true
 vim.o.updatetime = 100
 -- Turn line number on
 vim.o.number = true
+-- Use relative line numbers
+vim.o.relativenumber = true
 -- Proper directions splits
 vim.o.splitright = true
 vim.o.splitbelow = true
