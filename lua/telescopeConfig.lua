@@ -8,5 +8,10 @@ telescope.setup{
       preview_width = 0.65,
     },
     sorting_strategy = "ascending",
+		mappings = {
+			i = {
+				["<CR>"] = "select_drop"
+			}
+		},
   },
 }
