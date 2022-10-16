@@ -23,4 +23,7 @@ return require('packer').startup(function(use)
 	use 'j-hui/fidget.nvim'
 	use 'windwp/nvim-autopairs'
 	use 'RRethy/vim-illuminate'
+
+  -- Debugger stuff
+  use 'mfussenegger/nvim-dap'
 end)
