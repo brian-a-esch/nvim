@@ -7,7 +7,12 @@ return require('packer').startup(function(use)
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 	use { "kyazdani42/nvim-tree.lua", requires = 'kyazdani42/nvim-web-devicons' }
-	use { 'nvim-treesitter/nvim-treesitter', run = function() require('nvim-treesitter.install').update({ with_sync = true }) end }
+	use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    -- Pinned to this atm, since updating broke colors
+    tag = 'd47f3469e3a783e7d1382ab3fe95ba2fa3021ec0'
+  }
 	use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
 	use { 'akinsho/toggleterm.nvim', tag = '*' }
 
