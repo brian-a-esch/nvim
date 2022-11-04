@@ -50,4 +50,9 @@ nvim_tree.setup{
             },
         },
     },
+    git = {
+      -- Do not ignore git ignored files
+      ignore = false,
+    }
+
 }
