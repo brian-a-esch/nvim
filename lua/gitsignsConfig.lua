@@ -18,13 +18,13 @@ require('gitsigns').setup{
 
     -- Navigation
     map('n', ']g', function()
-      if vim.wo.diff then return ']c' end
+      if vim.wo.diff then return ']g' end
       vim.schedule(function() gs.next_hunk() end)
       return '<Ignore>'
     end, {expr=true})
 
     map('n', '[g', function()
-      if vim.wo.diff then return '[c' end
+      if vim.wo.diff then return '[g' end
       vim.schedule(function() gs.prev_hunk() end)
       return '<Ignore>'
     end, {expr=true})
