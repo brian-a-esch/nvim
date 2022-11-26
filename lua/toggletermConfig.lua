@@ -21,12 +21,3 @@ vim.keymap.set("n", '<leader>gl', function()
   logTerminal:toggle()
 end, opts)
 
-vim.keymap.set("n", '<leader>gB', function()
-  local filename = vim.api.nvim_buf_get_name(0) -- 0 is current
-  local row, _ = unpack(vim.api.nvim_win_get_cursor(0)) -- 0 is current
-  local cmd = string.format('git blame --porcelain L %d,%d %s', row, row, filename)
-  cmd = cmd .. " | head -1 | awk '{print $1}'"
-  cmd = string.format('tig show $(%s)', cmd)
-  local logTerminal = Terminal:new({ cmd = cmd })
-  logTerminal:toggle()
-end, opts)

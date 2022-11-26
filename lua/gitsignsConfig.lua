@@ -1,9 +1,19 @@
-require('gitsigns').setup{
+local gs = require('gitsigns')
+
+local get_blame_sha = function()
+  -- So this uses a "buffer variable" which gets set by the current line blame 
+  -- code below. This does mean if the delay is set high enough, we won't get
+  -- the sha. Could be better to open an issue to expose a way to get this
+  local bufnr = vim.api.nvim_get_current_buf()
+  return vim.b[bufnr].gitsigns_blame_line_dict.sha
+end
+
+gs.setup{
   current_line_blame = true,
   current_line_blame_opts = {
     virt_text = true,
     virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-    delay = 500,
+    delay = 0,
     ignore_whitespace = false,
   },
   current_line_blame_formatter = '<author>, <abbrev_sha>, <author_time:%Y-%m-%d> - <summary>',
@@ -42,3 +52,12 @@ require('gitsigns').setup{
     map('n', '<leader>gs', gs.select_hunk)
   end,
 }
+
+local Terminal  = require('toggleterm.terminal').Terminal
+local termOpts = { noremap = true, silent = true }
+
+vim.keymap.set("n", '<leader>gB', function()
+  local cmd = 'tig show ' .. get_blame_sha()
+  local logTerminal = Terminal:new({ cmd = cmd })
+  logTerminal:toggle()
+end, termOpts)
