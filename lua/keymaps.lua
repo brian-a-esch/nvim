@@ -46,16 +46,6 @@ keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 -- Load current file in NvimTree
 keymap("n", "<leader>r", ":NvimTreeFindFile<CR>", opts)
 
--- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files hidden=true<CR>", opts)
-keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>fc", ":Telescope command_history <CR>", opts)
--- This requires the lsp, and kind of overrides the "g" key "namespace" which
--- is kind of just used for the lsp commands. But if works really nice
-keymap("n", "gr",  ":Telescope lsp_references silent=true <CR>", opts)
-
 -- Quickfix menu, open on bottom of screen
 keymap("n", "<leader>bo", ":botright copen 30<CR>", opts)
 keymap("n", "<leader>bc", ":cclose <CR>", opts)

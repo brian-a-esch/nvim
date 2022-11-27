@@ -44,10 +44,6 @@ M.on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  -- I think we get this by the autocmd setup
-  --vim.keymap.set('n', 'gh', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   -- This is what it is in clion, maybe change?
   vim.keymap.set('i', '<C-p>', vim.lsp.buf.signature_help, bufopts)
   -- These are workspace commands. Typically  I just start neovim in a project directory
@@ -57,7 +53,6 @@ M.on_attach = function(client, bufnr)
   --vim.keymap.set('n', '<space>wl', function()
     --print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   --end, bufopts)
-  vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'gc', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
   -- Using telescope for this 
