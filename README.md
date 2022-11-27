@@ -4,32 +4,24 @@ There are a lot of todos to get this to a fully operational editor
     - The docs recommend symlinking the compilation commands for each project. This seems very not ideal to me, since I'd have a dirty git tree for every project I want to get auto completion for. I'd like to figure out a scheme where I can add a "projects.lua" file with the appropriate overrides for every project on the computer. 
 - Find usages
     - Works with the language server, but I'd like a more expansive view. But I'd still like to see the display options out there
-- Code navigation
-    - Move cursor to previous/next location across buffers
-    - Move between .h and .cpp
 - Vim General
-    - Easy way to close project
     - Delete buffers easily; by name and current open. All without messing up splits
-    - 80 character line for C++. Maybe 120 for other languages?
     - Different opening screen for a project
-    - Figure out how to remove highlighting after search, without removing highlighting all together
 - Git integration
-    - gitsigns is a tool that at least gives the "this line has been edited" view
-    - would love some sort of diff tool with a meld like view
-- Build
-    - Need a way to run build targets for make, cmake, go build, etc. 
-    - Would be great to have some gtest support. Might have to write my own plugin for that 
+    - annotate https://github.com/emmanueltouzery/agitator.nvim/
+- Testing
+    - Would be great to have some gtest support? https://github.com/alepez/vim-gtest
+    - More comprehensive testing runner solution? https://github.com/vim-test/vim-test
 - Debugging
-    - This is a bit unexplored atm. Tools I've seen are `DAP` and `Dlv`, but I am not sure what they do
-- Formatting
-    - Need language specific formatting
-    - C++ needs clang format, but to be scoped based on project?
-    - Lua needs something else
-    - If I get those set up can I restore four space tabs?
+    - I've added a "DAP" plugin,
+        - Its not working well for C++. Might consider https://github.com/sakhnik/nvim-gdb
+        - I should test it for other languages, like golang or python before ripping out
 - Viewing the call tree
     - https://github.com/ldelossa/litee-calltree.nvim
     - Write my own?
-
+- Priority 
+    - for popups I'd like the blame popups to be lower than the language server popups
+    - for gitsigns i'd like priority of git changes to be before warnings, but after errors? Maybe a way to display both?
 
 
 ### Installed
