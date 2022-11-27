@@ -15,6 +15,9 @@ for _, project_dir in ipairs(four_space_projects) do
   end
 end
 
+-- Use 81 since we want to limit to 80 chars
+vim.o.colorcolumn = "81"
+
 if is_four_space then
   vim.o.tabstop = 4
   vim.o.shiftwidth = 4

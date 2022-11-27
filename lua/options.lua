@@ -11,20 +11,19 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 -- Keep cursor from getting to the top or bottom of buffer
 vim.o.scrolloff = 8
--- Have tabs be treated as 2 spaces as the default. Values are overriden
+-- Have tabs be treated as 2 spaces as the default, and width of 
+-- 121 as the default. Values are overriden
 -- by filetype if there is a ftplugin/ for the filetype
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
+vim.o.colorcolumn = "121"
 
 -- Auto completion for vim "comamnds" (in things in prompt after entering ':')
 vim.o.wildmode = "longest:full"
 
 -- Turn mouse on in all modes
 vim.o.mouse = 'a'
-
--- Use 81 since we want to limit to 80 chars
-vim.o.colorcolumn = "81"
 
 -- Highlight the line the cursor is on
 vim.o.cursorline = true
