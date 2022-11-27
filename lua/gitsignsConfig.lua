@@ -49,7 +49,7 @@ gs.setup{
     map('n', '<leader>gb', function() gs.blame_line{full=true} end)
     map('n', '<leader>gd', gs.diffthis)
     map('n', '<leader>gD', function() gs.diffthis('~') end)
-    map('n', '<leader>gs', gs.select_hunk)
+    map('n', '<leader>gh', gs.select_hunk)
   end,
 }
 
