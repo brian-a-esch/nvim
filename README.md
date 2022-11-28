@@ -12,6 +12,7 @@ There are a lot of todos to get this to a fully operational editor
 - Testing
     - Would be great to have some gtest support? https://github.com/alepez/vim-gtest
     - More comprehensive testing runner solution? https://github.com/vim-test/vim-test
+    - Another option? https://github.com/nvim-neotest/neotest
 - Debugging
     - I've added a "DAP" plugin,
         - Its not working well for C++. Might consider https://github.com/sakhnik/nvim-gdb
@@ -19,7 +20,8 @@ There are a lot of todos to get this to a fully operational editor
 - Viewing the call tree
     - https://github.com/ldelossa/litee-calltree.nvim
     - Write my own?
-- Priority 
+- Language server 
+    - show when code actions are available, like we do for diagnostics
     - for popups I'd like the blame popups to be lower than the language server popups
     - for gitsigns i'd like priority of git changes to be before warnings, but after errors? Maybe a way to display both?
 
@@ -33,3 +35,7 @@ These are the things I have installed on the system
 - [lua-language-server](https://github.com/sumneko/lua-language-server) using a pre built binary found in their releases. Work computer uses version 3.5.5 
 - [ripgrep](https://github.com/BurntSushi/ripgrep) using a binary on github, `ripgrep_13.0.0_amd64.deb`
 - [fd](https://github.com/sharkdp/fd) using a binary on github, `fd-musl_8.4.0_amd64.deb`
+- [lldb](https://apt.llvm.org/) Specifically lldb-14. On my work ubuntu station I had to cleanup the
+path the python files, since the package appears to be broken. Made a symlink from 
+`/usr/lib/lib/python3.6/site-packages` to the real directory 
+`/usr/lib/llvm-14/lib/python3/dist-packages/lldb/`
