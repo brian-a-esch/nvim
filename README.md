@@ -24,6 +24,8 @@ There are a lot of todos to get this to a fully operational editor
     - show when code actions are available, like we do for diagnostics
     - for popups I'd like the blame popups to be lower than the language server popups
     - for gitsigns i'd like priority of git changes to be before warnings, but after errors? Maybe a way to display both?
+- Folding
+    - Use treesitter for code folding. See options.lua
 
 
 ### Installed
