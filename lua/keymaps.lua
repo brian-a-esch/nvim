@@ -46,11 +46,27 @@ keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 -- Load current file in NvimTree
 keymap("n", "<leader>r", ":NvimTreeFindFile<CR>", opts)
 
--- Quickfix menu, open on bottom of screen
-keymap("n", "<leader>bo", ":botright copen 30<CR>", opts)
-keymap("n", "<leader>bc", ":cclose <CR>", opts)
 keymap("n", "]b", ":cn<CR>", opts)
 keymap("n", "[b", ":cN<CR>", opts)
+-- Toggle for quickfix
+keymap("n", "<leader>b", function()
+  local open = false
+  for _, i in ipairs(vim.api.nvim_list_wins()) do
+    local buf = vim.api.nvim_win_get_buf(i)
+    local buftype = vim.api.nvim_buf_get_option(buf, "buftype")
+    if buftype == "quickfix" then
+      open = true
+      break
+    end
+  end
+
+  if open then
+    vim.cmd(":cclose")
+  else
+    -- Quickfix menu, open on bottom of screen
+    vim.cmd(":botright copen 30")
+  end
+end, opts)
 
 
 -- Do not add quickfix list to the buffer list. This makes it so
