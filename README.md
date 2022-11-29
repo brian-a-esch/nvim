@@ -26,6 +26,9 @@ There are a lot of todos to get this to a fully operational editor
     - for gitsigns i'd like priority of git changes to be before warnings, but after errors? Maybe a way to display both?
 - Folding
     - Use treesitter for code folding. See options.lua
+- Completion
+    - Don't want take up the whole screen with completions
+    - Better sorting to prefer variable > member function > global function
 
 
 ### Installed
@@ -41,3 +44,6 @@ These are the things I have installed on the system
 path the python files, since the package appears to be broken. Made a symlink from 
 `/usr/lib/lib/python3.6/site-packages` to the real directory 
 `/usr/lib/llvm-14/lib/python3/dist-packages/lldb/`
+- [tree-sitter](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md) installed on workstation via 
+  `cargo install tree-sitter-cli`. Should be in path and can run `tree-sitter` command. Running `:checkheath` in vim
+  command prompt, under the tree sitter section we can see if the plugin is picking it up
