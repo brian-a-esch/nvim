@@ -10,8 +10,6 @@ return require('packer').startup(function(use)
 	use {
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    -- Pinned to this atm, since updating broke colors
-    tag = 'd47f3469e3a783e7d1382ab3fe95ba2fa3021ec0'
   }
 	use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
 	use { 'akinsho/toggleterm.nvim', tag = '*' }
