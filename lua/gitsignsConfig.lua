@@ -16,6 +16,9 @@ gs.setup{
     delay = 0,
     ignore_whitespace = false,
   },
+  -- Make priority HIGHER than lsp. This in conjunction with increasing the
+  -- "signcolumn" size to 2 makes it so gitsigns and an lsp error can both display
+  sign_priority = 20,
   current_line_blame_formatter = '<author>, <abbrev_sha>, <author_time:%Y-%m-%d> - <summary>',
   on_attach = function(bufnr)
     local function map(mode, l, r, opts)

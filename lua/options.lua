@@ -29,8 +29,8 @@ vim.o.mouse = 'a'
 vim.o.cursorline = true
 
 -- Always show column to the left of the line numbers, (i.e. for gitsigns
--- or the language server diagnostics). Prevents jittering while editting
-vim.o.signcolumn = "yes"
+-- or the language server diagnostics). Prevents jittering while editting.
+vim.o.signcolumn = "yes:2"
 
 -- TODO use treesitter for folds. Should be something like this
 --vim.o.foldenable = true
