@@ -62,7 +62,16 @@ M.on_attach = function(client, bufnr)
   -- range_formatting selects from last visual selection. Hence the escape at the beginning
   vim.keymap.set('v', 'gq', '<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>', bufopts)
 
-  vim.api.nvim_command('autocmd CursorHold <buffer> lua vim.diagnostic.open_float(0, { scope = "line" })')
+  vim.api.nvim_create_autocmd('CursorHold', {
+    callback = function()
+      vim.diagnostic.open_float({
+        scope = 'line',
+        -- Keep diagnostics below gitsigns and other popups. Don't know
+        -- a truly "best" number for this, but it works for now
+        zindex = 1,
+      })
+    end
+  })
 
   vim.keymap.set('n', 'gh', ':ClangdSwitchSourceHeader<CR>', bufopts)
 end
