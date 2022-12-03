@@ -19,8 +19,8 @@ dap.configurations.cpp = {
   }
 }
 
-vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl='', linehl ='', numhl = ''})
-vim.fn.sign_define('DapStopped', { text = '🟢', texthl='', linehl ='', numhl = ''})
+vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '🟢', texthl = '', linehl = '', numhl = '' })
 
 local opts = { silent = true }
 vim.keymap.set("n", "<leader>dj", dap.step_over, opts)

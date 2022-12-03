@@ -6,7 +6,7 @@ local cmp = require('cmp')
 
 cmp.event:on(
   'confirm_done',
-    cmp_autopairs.on_confirm_done({
+  cmp_autopairs.on_confirm_done({
     filetypes = {
       -- "*" is a alias to all filetypes
       ["*"] = {

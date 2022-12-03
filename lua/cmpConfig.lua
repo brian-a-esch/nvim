@@ -19,36 +19,36 @@ cmp.setup({
     --["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
     ["<CR>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-	cmp.close()
+        cmp.close()
       else
-	fallback()
+        fallback()
       end
     end, { "i", "s" }),
-    --["<CR>"] = cmp.maabort(function(fallback) 
-      --if cmp.visible() then
-	--cmp.select_next_item()
-      --end
-      --cmp.close()
+    --["<CR>"] = cmp.maabort(function(fallback)
+    --if cmp.visible() then
+    --cmp.select_next_item()
+    --end
+    --cmp.close()
     --end, { "i", "s" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-	cmp.select_next_item()
-      -- If luasnip is added, we should add this
-      --elseif luasnip.expandable() then
-	--luasnip.expand()
-      --elseif luasnip.expand_or_jumpable() then
-	--luasnip.expand_or_jump()
+        cmp.select_next_item()
+        -- If luasnip is added, we should add this
+        --elseif luasnip.expandable() then
+        --luasnip.expand()
+        --elseif luasnip.expand_or_jumpable() then
+        --luasnip.expand_or_jump()
       elseif check_backspace() then
-	fallback()
+        fallback()
       else
-	fallback()
+        fallback()
       end
     end, { "i", "s" }),
 
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      --elseif luasnip.jumpable(-1) then
+        --elseif luasnip.jumpable(-1) then
         --luasnip.jump(-1)
       else
         fallback()

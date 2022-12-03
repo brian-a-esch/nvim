@@ -1,6 +1,6 @@
 local telescope = require('telescope')
 
-telescope.setup{
+telescope.setup {
   defaults = {
     prompt_prefix = " ",
     layout_config = {
@@ -8,11 +8,11 @@ telescope.setup{
       preview_width = 0.65,
     },
     sorting_strategy = "ascending",
-		mappings = {
-			i = {
-				["<CR>"] = "select_drop"
-			}
-		},
+    mappings = {
+      i = {
+        ["<CR>"] = "select_drop"
+      }
+    },
   },
 }
 
@@ -33,4 +33,3 @@ vim.keymap.set("n", "gs", builtin.lsp_document_symbols, opts)
 vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
 vim.keymap.set("n", "gt", builtin.lsp_type_definitions, opts)
 vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
-

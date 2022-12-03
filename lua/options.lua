@@ -11,7 +11,7 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 -- Keep cursor from getting to the top or bottom of buffer
 vim.o.scrolloff = 8
--- Have tabs be treated as 2 spaces as the default, and width of 
+-- Have tabs be treated as 2 spaces as the default, and width of
 -- 121 as the default. Values are overriden
 -- by filetype if there is a ftplugin/ for the filetype
 vim.o.tabstop = 2

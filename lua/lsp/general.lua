@@ -42,7 +42,7 @@ M.on_attach = function(client, bufnr)
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   -- This is what it is in clion, maybe change?
   vim.keymap.set('i', '<C-p>', vim.lsp.buf.signature_help, bufopts)
@@ -51,11 +51,11 @@ M.on_attach = function(client, bufnr)
   --vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   --vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   --vim.keymap.set('n', '<space>wl', function()
-    --print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  --print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   --end, bufopts)
   vim.keymap.set('n', 'gc', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
-  -- Using telescope for this 
+  -- Using telescope for this
   --vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
   vim.keymap.set('n', 'gQ', vim.lsp.buf.formatting, bufopts)

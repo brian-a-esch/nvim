@@ -2,7 +2,7 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
--- Somtimes on the internet there are normal vim re-mapping configs, 
+-- Somtimes on the internet there are normal vim re-mapping configs,
 -- here's an exmplanation of them
 -- Commands                        Mode
 -----------                        ----
@@ -72,7 +72,7 @@ end, opts)
 -- Do not add quickfix list to the buffer list. This makes it so
 -- swithcing between buffers does not include quickfix list. The
 -- quickfix list can still be found by ":ls!" if really needed.
-vim.api.nvim_create_autocmd({"FileType"}, {
+vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "qf",
   command = "set nobuflisted",
 })

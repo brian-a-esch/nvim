@@ -1,6 +1,10 @@
 {
-    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-    "Lua.diagnostics.globals": [
-        "vim"
-    ]
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "Lua.diagnostics.globals": [
+    "vim"
+  ],
+  "Lua.format.defaultConfig":{
+    "indent_style":"space",
+    "indent_size":"2"
+  }
 }
