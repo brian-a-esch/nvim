@@ -9,6 +9,7 @@ There are a lot of todos to get this to a fully operational editor
     - Different opening screen for a project
 - Git integration
     - annotate https://github.com/emmanueltouzery/agitator.nvim/
+    - link generator https://github.com/ruifm/gitlinker.nvim
 - Testing
     - Would be great to have some gtest support? https://github.com/alepez/vim-gtest
     - More comprehensive testing runner solution? https://github.com/vim-test/vim-test
@@ -24,11 +25,17 @@ There are a lot of todos to get this to a fully operational editor
     - show when code actions are available, like we do for diagnostics
     - for popups I'd like the blame popups to be lower than the language server popups
     - for gitsigns i'd like priority of git changes to be before warnings, but after errors? Maybe a way to display both?
+    - Display "pending" lsp requests, so I know that something is taking a second vs never completing
 - Folding
     - Use treesitter for code folding. See options.lua
 - Completion
     - Don't want take up the whole screen with completions
     - Better sorting to prefer variable > member function > global function
+- Signcolumn
+    - A slight thing that bugs me is if a gitsign and lsp error both show up, the lsp error is more on the left.
+      It seems like this is being looked at with a few issues & PRs. Something they may add in 0.9 release?
+      - https://github.com/neovim/neovim/issues/16632
+      - https://github.com/neovim/neovim/pull/19737
 
 
 ### Installed
