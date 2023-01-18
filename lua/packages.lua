@@ -27,6 +27,9 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'RRethy/vim-illuminate'
 
+  use({ "L3MON4D3/LuaSnip", tag = "v1.*" })
+  use { 'saadparwaiz1/cmp_luasnip' }
+
   -- Debugger stuff
   use 'mfussenegger/nvim-dap'
 end)

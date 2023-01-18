@@ -29,6 +29,12 @@ There are a lot of todos to get this to a fully operational editor
 - Completion
     - Don't want take up the whole screen with completions
     - Better sorting to prefer variable > member function > global function
+    - `cmp-path` for filesystem paths
+    - `cmp-cmdline` for command completions
+    - Special config for `gitcommit` files, can be seen on `nvim-cmp` home README
+- Snippets
+    - Play with the keybindings, not sold on snippet selection
+    - Explore the world of snippets, either making useful ones, existing ones, and lua scrirpting
 - Signcolumn
     - A slight thing that bugs me is if a gitsign and lsp error both show up, the lsp error is more on the left.
       It seems like this is being looked at with a few issues & PRs. Something they may add in 0.9 release?
@@ -52,3 +58,5 @@ path the python files, since the package appears to be broken. Made a symlink fr
 - [tree-sitter](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md) installed on workstation via 
   `cargo install tree-sitter-cli`. Should be in path and can run `tree-sitter` command. Running `:checkheath` in vim
   command prompt, under the tree sitter section we can see if the plugin is picking it up
+- [vim-snippets](https://github.com/honza/vim-snippets.git) installed in `~/.config/vim-snippets` via a `git clone`.
+  Don't know if that's the best place for it, or if a submodule would be better
