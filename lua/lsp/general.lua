@@ -58,9 +58,9 @@ M.on_attach = function(client, bufnr)
   -- Using telescope for this
   --vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
-  vim.keymap.set('n', 'gQ', vim.lsp.buf.formatting, bufopts)
-  -- range_formatting selects from last visual selection. Hence the escape at the beginning
-  vim.keymap.set('v', 'gq', '<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>', bufopts)
+  -- In visual mode it will select the last hightlighted and format that range, if the lsp
+  -- supports that. In normal mode the whole file will be re-formatted
+  vim.keymap.set({ 'n', 'v' }, 'gq', '<cmd>lua vim.lsp.buf.format()<CR><ESC>', bufopts)
 
   vim.api.nvim_create_autocmd('CursorHold', {
     callback = function()
