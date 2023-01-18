@@ -23,8 +23,6 @@ There are a lot of todos to get this to a fully operational editor
     - Write my own?
 - Language server 
     - show when code actions are available, like we do for diagnostics
-    - for popups I'd like the blame popups to be lower than the language server popups
-    - for gitsigns i'd like priority of git changes to be before warnings, but after errors? Maybe a way to display both?
     - Display "pending" lsp requests, so I know that something is taking a second vs never completing
 - Folding
     - Use treesitter for code folding. See options.lua

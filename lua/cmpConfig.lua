@@ -24,12 +24,7 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
-    --["<CR>"] = cmp.maabort(function(fallback)
-    --if cmp.visible() then
-    --cmp.select_next_item()
-    --end
-    --cmp.close()
-    --end, { "i", "s" }),
+
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
