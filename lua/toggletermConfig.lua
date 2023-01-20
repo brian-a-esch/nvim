@@ -16,7 +16,16 @@ local opts     = { noremap = true, silent = true }
 vim.keymap.set("n", '<leader>gl', function()
   local filename = vim.api.nvim_buf_get_name(0) -- 0 is current
   local logTerminal = Terminal:new({
+    cmd = "tig " .. filename
+  })
+  logTerminal:toggle()
+end, opts)
+
+vim.keymap.set("n", '<leader>gL', function()
+  local filename = vim.api.nvim_buf_get_name(0) -- 0 is current
+  local logTerminal = Terminal:new({
     cmd = "tig --full-diff " .. filename
   })
   logTerminal:toggle()
 end, opts)
+
