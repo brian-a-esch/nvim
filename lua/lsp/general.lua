@@ -72,8 +72,6 @@ M.on_attach = function(client, bufnr)
       })
     end
   })
-
-  vim.keymap.set('n', 'gh', ':ClangdSwitchSourceHeader<CR>', bufopts)
 end
 
 return M
