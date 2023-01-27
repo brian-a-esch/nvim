@@ -60,3 +60,5 @@ path the python files, since the package appears to be broken. Made a symlink fr
   command prompt, under the tree sitter section we can see if the plugin is picking it up
 - [vim-snippets](https://github.com/honza/vim-snippets.git) installed in `~/.config/vim-snippets` via a `git clone`.
   Don't know if that's the best place for it, or if a submodule would be better
+- [rust-analyzer](https://rust-analyzer.github.io/manual.html#rust-analyzer-language-server-binary) installed via
+  `rustup component add rust-analyzer`
