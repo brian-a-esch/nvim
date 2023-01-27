@@ -68,6 +68,11 @@ keymap("n", "<leader>b", function()
   end
 end, opts)
 
+-- Navigate by diagnostic errors and warnings. Plays well with LSP diagnostics
+keymap("n", "]e", function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end, opts)
+keymap("n", "[e", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end, opts)
+keymap("n", "]w", function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN }) end, opts)
+keymap("n", "[w", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN }) end, opts)
 
 -- Do not add quickfix list to the buffer list. This makes it so
 -- swithcing between buffers does not include quickfix list. The
