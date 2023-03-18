@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
   -- Gets a single char color column
   use "lukas-reineke/virt-column.nvim"
   use "lewis6991/gitsigns.nvim"
+  use "tpope/vim-fugitive"
   use 'skywind3000/asyncrun.vim'
   use 'j-hui/fidget.nvim'
   use 'windwp/nvim-autopairs'
