@@ -6,9 +6,10 @@ configs.setup({
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "css" }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = { 'org' },
   },
   autopairs = {
     enable = true,
   },
+  ensure_installed = {'org'}, -- Or run :TSUpdate org
 })

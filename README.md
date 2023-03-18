@@ -40,6 +40,10 @@ There are a lot of todos to get this to a fully operational editor
       It seems like this is being looked at with a few issues & PRs. Something they may add in 0.9 release?
       - https://github.com/neovim/neovim/issues/16632
       - https://github.com/neovim/neovim/pull/19737
+- Orgmode
+    - There are some limitations of the current org mode that can be solved with plugins
+      - [table support](https://github.com/dhruvasagar/vim-table-mode)
+      - [code snippets](https://github.com/michaelb/sniprun)
 
 
 ### Installed

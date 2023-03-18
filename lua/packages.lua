@@ -32,4 +32,8 @@ return require('packer').startup(function(use)
 
   -- Debugger stuff
   use 'mfussenegger/nvim-dap'
+
+  -- Org mode and org bullets. N.B. orgmode uses treesitter for syntax highlighting
+  use { 'nvim-orgmode/orgmode' }
+  use { 'akinsho/org-bullets.nvim' }
 end)
