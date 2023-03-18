@@ -5,7 +5,11 @@ local get_blame_sha = function()
   -- code below. This does mean if the delay is set high enough, we won't get
   -- the sha. Could be better to open an issue to expose a way to get this
   local bufnr = vim.api.nvim_get_current_buf()
-  return vim.b[bufnr].gitsigns_blame_line_dict.sha
+  local sha = vim.b[bufnr].gitsigns_blame_line_dict.sha
+  if sha == "0000000000000000000000000000000000000000" then
+    return nil
+  end
+  return sha
 end
 
 gs.setup {
@@ -48,7 +52,14 @@ gs.setup {
     map('n', '<leader>gR', gs.reset_buffer)
     map('n', '<leader>gp', gs.preview_hunk)
     map('n', '<leader>gb', function() gs.blame_line { full = true } end)
-    map('n', '<leader>gd', gs.diffthis)
+    map('n', '<leader>gd', function()
+      local sha = get_blame_sha()
+      if sha == nil then
+        gs.diffthis()
+      else
+        gs.diffthis(sha .. '~')
+      end
+    end)
     map('n', '<leader>gD', function() gs.diffthis('~') end)
     map('n', '<leader>gh', gs.select_hunk)
   end,
