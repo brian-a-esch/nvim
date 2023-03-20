@@ -66,3 +66,4 @@ path the python files, since the package appears to be broken. Made a symlink fr
   Don't know if that's the best place for it, or if a submodule would be better
 - [rust-analyzer](https://rust-analyzer.github.io/manual.html#rust-analyzer-language-server-binary) installed via
   `rustup component add rust-analyzer`
+- [tsserver](https://github.com/Microsoft/TypeScript/wiki/Standalone-Server-%28tsserver%29) installed via `npm install -g typescript typescript-language-server`
