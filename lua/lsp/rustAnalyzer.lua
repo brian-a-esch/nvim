@@ -12,7 +12,7 @@ require 'lspconfig'.rust_analyzer.setup({
   on_attach = function(client, bufnr)
     general.on_attach(client, bufnr)
 
-    vim.api.nvim_create_autocmd("BufWritePre",
-      { pattern = '*', callback = vim.lsp.buf.formatting_sync })
+    --vim.api.nvim_create_autocmd("BufWritePre",
+      --{ pattern = '*', callback = vim.lsp.buf.formatting_sync })
   end,
 })
