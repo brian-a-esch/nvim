@@ -44,6 +44,9 @@ There are a lot of todos to get this to a fully operational editor
     - There are some limitations of the current org mode that can be solved with plugins
       - [table support](https://github.com/dhruvasagar/vim-table-mode)
       - [code snippets](https://github.com/michaelb/sniprun)
+- Refactoring tools
+    - https://github.com/ThePrimeagen/refactoring.nvim
+    - https://github.com/simrat39/rust-tools.nvim
 
 
 ### Installed
