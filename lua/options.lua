@@ -32,9 +32,10 @@ vim.o.cursorline = true
 -- or the language server diagnostics). Prevents jittering while editting.
 vim.o.signcolumn = "yes:2"
 
--- TODO use treesitter for folds. Should be something like this
---vim.o.foldenable = true
---vim.o.foldmethod = "expr"
---vim.o.foldexpr = "nvim_treesitter#foldexpr()"
--- By default folds are used. This auto expands fold by default
---vim.o.foldlevel = 99
+-- treesitter for folds
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- By default folds are used. This auto expands fold by default, Using "-vim.o.foldlevel = 99" 
+-- was another option but messed with the total fold level. Could have the default fold level
+-- set to something small if that seems reasonable?
+vim.o.foldenable = false
