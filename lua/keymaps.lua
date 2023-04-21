@@ -74,6 +74,8 @@ keymap("n", "[e", function() vim.diagnostic.goto_prev({ severity = vim.diagnosti
 keymap("n", "]w", function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN }) end, opts)
 keymap("n", "[w", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN }) end, opts)
 
+keymap("n", "<leader>gg", ":vert G<CR>", opts)
+
 -- Do not add quickfix list to the buffer list. This makes it so
 -- swithcing between buffers does not include quickfix list. The
 -- quickfix list can still be found by ":ls!" if really needed.
