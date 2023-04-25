@@ -5,27 +5,24 @@ There are a lot of todos to get this to a fully operational editor
 - Find usages
     - Works with the language server, but I'd like a more expansive view. But I'd still like to see the display options out there
 - Vim General
-    - Delete buffers easily; by name and current open. All without messing up splits
     - Different opening screen for a project
-- Git integration
-    - annotate https://github.com/emmanueltouzery/agitator.nvim/
-    - link generator https://github.com/ruifm/gitlinker.nvim
 - Testing
     - Would be great to have some gtest support? https://github.com/alepez/vim-gtest
     - More comprehensive testing runner solution? https://github.com/vim-test/vim-test
     - Another option? https://github.com/nvim-neotest/neotest
+    - Build tasks with? https://github.com/skywind3000/asynctasks.vim
+    - Use tree-sitter to determine gtest, and then feed that as an arg
 - Debugging
     - I've added a "DAP" plugin,
         - Its not working well for C++. Might consider https://github.com/sakhnik/nvim-gdb
         - I should test it for other languages, like golang or python before ripping out
+    - Vimspector is an option https://github.com/puremourning/vimspector
 - Viewing the call tree
     - https://github.com/ldelossa/litee-calltree.nvim
     - Write my own?
 - Language server 
     - show when code actions are available, like we do for diagnostics
     - Display "pending" lsp requests, so I know that something is taking a second vs never completing
-- Folding
-    - Use treesitter for code folding. See options.lua
 - Completion
     - Don't want take up the whole screen with completions
     - Better sorting to prefer variable > member function > global function
@@ -44,9 +41,13 @@ There are a lot of todos to get this to a fully operational editor
     - There are some limitations of the current org mode that can be solved with plugins
       - [table support](https://github.com/dhruvasagar/vim-table-mode)
       - [code snippets](https://github.com/michaelb/sniprun)
+- LSP
+    - [type heirarchy](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#typeHierarchy_supertypes)
+      This is supported by clangd too https://clangd.llvm.org/extensions#type-hierarchy
 - Refactoring tools
     - https://github.com/ThePrimeagen/refactoring.nvim
     - https://github.com/simrat39/rust-tools.nvim
+    - https://github.com/smjonas/inc-rename.nvim
 
 
 ### Installed
