@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
   use { 'hrsh7th/nvim-cmp' }
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-nvim-lua' }
 
   -- Gets a single char color column
   use "lukas-reineke/virt-column.nvim"
@@ -37,4 +38,6 @@ return require('packer').startup(function(use)
   -- Org mode and org bullets. N.B. orgmode uses treesitter for syntax highlighting
   use { 'nvim-orgmode/orgmode' }
   use { 'akinsho/org-bullets.nvim' }
+
+  use { 'nvim-treesitter/playground' }
 end)

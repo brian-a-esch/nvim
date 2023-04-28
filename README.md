@@ -47,6 +47,8 @@ There are a lot of todos to get this to a fully operational editor
 - LSP
     - [type heirarchy](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#typeHierarchy_supertypes)
       This is supported by clangd too https://clangd.llvm.org/extensions#type-hierarchy
+- Codelens
+    - This is an lsp feature for "run this function" & stuff like that. Would be cool for tests & main exe
 - Refactoring tools
     - https://github.com/ThePrimeagen/refactoring.nvim
     - https://github.com/simrat39/rust-tools.nvim

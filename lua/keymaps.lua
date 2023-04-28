@@ -42,9 +42,9 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Toggle NvimTree
-keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>tt", ":NvimTreeToggle<CR>", opts)
 -- Load current file in NvimTree
-keymap("n", "<leader>r", ":NvimTreeFindFile<CR>", opts)
+keymap("n", "<leader>tr", ":NvimTreeFindFile<CR>", opts)
 
 keymap("n", "]b", ":cn<CR>", opts)
 keymap("n", "[b", ":cN<CR>", opts)
@@ -77,6 +77,12 @@ keymap("n", "[w", function() vim.diagnostic.goto_prev({ severity = vim.diagnosti
 -- Load last 200 commits, loading entire history is slow
 keymap("n", "<leader>gl", ":vert G log --decorate -200<CR>", opts)
 keymap("n", "<leader>gg", ":vert G<CR>", opts)
+
+-- Refactor tool
+keymap("n", "<leader>r", function ()
+  package.loaded.refactor = nil
+  require('refactor').run()
+end)
 
 -- Do not add quickfix list to the buffer list. This makes it so
 -- swithcing between buffers does not include quickfix list. The
