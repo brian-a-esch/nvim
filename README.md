@@ -34,9 +34,12 @@ There are a lot of todos to get this to a fully operational editor
     - Explore the world of snippets, either making useful ones, existing ones, and lua scrirpting
 - Signcolumn
     - A slight thing that bugs me is if a gitsign and lsp error both show up, the lsp error is more on the left.
-      It seems like this is being looked at with a few issues & PRs. Something they may add in 0.9 release?
+      It seems like this is being looked at with a few issues & PRs. Something they may add in 0.10 release?
       - https://github.com/neovim/neovim/issues/16632
-      - https://github.com/neovim/neovim/pull/19737
+      - https://github.com/neovim/neovim/pull/19737, the feature that will implement it
+    - Statuscolumn and Foldcolumn
+      There seems to be a new set of features for customizing the column. We may want to display fold options,
+      also maybe could reverse column display order?
 - Orgmode
     - There are some limitations of the current org mode that can be solved with plugins
       - [table support](https://github.com/dhruvasagar/vim-table-mode)
