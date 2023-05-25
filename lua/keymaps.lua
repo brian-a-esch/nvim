@@ -83,3 +83,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "qf",
   command = "set nobuflisted",
 })
+
+-- setup copy and paste to go through leader keys
+keymap("v", "<leader>y", '"+y')
+keymap({ "n", "v" }, "<leader>p", '"+p')
+keymap({ "n", "v" }, "<leader>P", '"+P')
+
