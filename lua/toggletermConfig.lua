@@ -13,7 +13,7 @@ require("toggleterm").setup {
 local Terminal = require('toggleterm.terminal').Terminal
 local opts     = { noremap = true, silent = true }
 
-vim.keymap.set("n", '<leader>gl', function()
+vim.keymap.set("n", '<leader>gh', function()
   local filename = vim.api.nvim_buf_get_name(0) -- 0 is current
   local logTerminal = Terminal:new({
     cmd = "tig " .. filename
@@ -21,7 +21,7 @@ vim.keymap.set("n", '<leader>gl', function()
   logTerminal:toggle()
 end, opts)
 
-vim.keymap.set("n", '<leader>gL', function()
+vim.keymap.set("n", '<leader>gH', function()
   local filename = vim.api.nvim_buf_get_name(0) -- 0 is current
   local logTerminal = Terminal:new({
     cmd = "tig --full-diff " .. filename

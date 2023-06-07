@@ -61,7 +61,6 @@ gs.setup {
       end
     end)
     map('n', '<leader>gD', function() gs.diffthis('~') end)
-    map('n', '<leader>gh', gs.select_hunk)
   end,
 }
 
