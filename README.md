@@ -2,10 +2,6 @@
 There are a lot of todos to get this to a fully operational editor
 - Scheme for project specific compilation commands
     - The docs recommend symlinking the compilation commands for each project. This seems very not ideal to me, since I'd have a dirty git tree for every project I want to get auto completion for. I'd like to figure out a scheme where I can add a "projects.lua" file with the appropriate overrides for every project on the computer. 
-- Find usages
-    - Works with the language server, but I'd like a more expansive view. But I'd still like to see the display options out there
-- Vim General
-    - Different opening screen for a project
 - Testing
     - Would be great to have some gtest support? https://github.com/alepez/vim-gtest
     - More comprehensive testing runner solution? https://github.com/vim-test/vim-test
@@ -20,9 +16,12 @@ There are a lot of todos to get this to a fully operational editor
 - Viewing the call tree
     - https://github.com/ldelossa/litee-calltree.nvim
     - Write my own?
-- Language server 
+- LSP
     - show when code actions are available, like we do for diagnostics
     - Display "pending" lsp requests, so I know that something is taking a second vs never completing
+    - Inlay hints looks like it got merged https://github.com/neovim/neovim/issues/18086, use that with next release
+    - [type heirarchy](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#typeHierarchy_supertypes)
+      This is supported by clangd too https://clangd.llvm.org/extensions#type-hierarchy
 - Completion
     - Don't want take up the whole screen with completions
     - Better sorting to prefer variable > member function > global function
@@ -40,13 +39,11 @@ There are a lot of todos to get this to a fully operational editor
     - Statuscolumn and Foldcolumn
       There seems to be a new set of features for customizing the column. We may want to display fold options,
       also maybe could reverse column display order?
+    - Also found this plugin that uses the StatusColumn feature https://github.com/luukvbaal/statuscol.nvim
 - Orgmode
     - There are some limitations of the current org mode that can be solved with plugins
       - [table support](https://github.com/dhruvasagar/vim-table-mode)
       - [code snippets](https://github.com/michaelb/sniprun)
-- LSP
-    - [type heirarchy](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#typeHierarchy_supertypes)
-      This is supported by clangd too https://clangd.llvm.org/extensions#type-hierarchy
 - Codelens
     - This is an lsp feature for "run this function" & stuff like that. Would be cool for tests & main exe
 - Refactoring tools
