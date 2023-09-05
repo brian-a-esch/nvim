@@ -25,7 +25,8 @@ return require('packer').startup(function(use)
   use "lewis6991/gitsigns.nvim"
   use "tpope/vim-fugitive"
   use 'skywind3000/asyncrun.vim'
-  use 'j-hui/fidget.nvim'
+  -- On legacy since they're re-writing, consider upgrading when they're done
+  use { 'j-hui/fidget.nvim', tag = "legacy" }
   use 'windwp/nvim-autopairs'
   use 'RRethy/vim-illuminate'
 

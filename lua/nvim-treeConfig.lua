@@ -1,5 +1,4 @@
 local nvim_tree = require('nvim-tree')
-local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
 nvim_tree.setup {
   -- have cursor start at the begining of the file name
