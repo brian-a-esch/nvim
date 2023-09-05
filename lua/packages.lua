@@ -41,4 +41,6 @@ return require('packer').startup(function(use)
   use { 'akinsho/org-bullets.nvim' }
 
   use { 'nvim-treesitter/playground' }
+
+  use { 'jghauser/fold-cycle.nvim' }
 end)

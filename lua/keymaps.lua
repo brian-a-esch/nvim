@@ -97,3 +97,18 @@ keymap("v", "<leader>y", '"+y')
 keymap({ "n", "v" }, "<leader>p", '"+p')
 keymap({ "n", "v" }, "<leader>P", '"+P')
 
+local fold_cycle = require('fold-cycle')
+fold_cycle.setup()
+keymap("n", "<tab>", function()
+  vim.o.foldenable = true
+  fold_cycle.open()
+end)
+keymap("n", "<s-tab>", function()
+  vim.o.foldenable = true
+  fold_cycle.close_all()
+end)
+-- I think this is just a more sensible default
+keymap("n", "zC", function()
+  vim.o.foldenable = true
+  fold_cycle.close_all()
+end)
