@@ -75,7 +75,7 @@ keymap("n", "]w", function() vim.diagnostic.goto_next({ severity = vim.diagnosti
 keymap("n", "[w", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN }) end, opts)
 
 -- Load last 200 commits, loading entire history is slow
-keymap("n", "<leader>gl", ":vert G log --decorate -200<CR>", opts)
+keymap("n", "<leader>gl", ":vert G log --stat --decorate -200<CR>", opts)
 keymap("n", "<leader>gg", ":vert G<CR>", opts)
 
 -- Refactor tool
