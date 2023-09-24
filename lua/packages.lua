@@ -43,4 +43,8 @@ return require('packer').startup(function(use)
   use { 'nvim-treesitter/playground' }
 
   use { 'jghauser/fold-cycle.nvim' }
+  use {
+    "startup-nvim/startup.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  }
 end)
