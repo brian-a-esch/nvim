@@ -1,88 +1,28 @@
-local startup = require('startup')
+local alpha = require("alpha")
+local dashboard = require("alpha.themes.dashboard")
 
-local M = {}
-
-function M.execute_and_close(command)
-  local curr = vim.api.nvim_get_current_buf()
-  vim.cmd(command)
-  vim.api.nvim_buf_delete(curr, {})
-end
-
-local settings = {
-  -- every line should be same width without escaped \
-  header = {
-    type = "text",
-    oldfiles_directory = false,
-    align = "center",
-    fold_section = false,
-    title = "Header",
-    margin = 5,
-    content = {
-      " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
-      " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
-      " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
-      " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
-      " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
-      " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
-    },
-    highlight = "Statement",
-    default_color = "",
-    oldfiles_amount = 0,
-  },
-  -- name which will be displayed and command
-  body = {
-    type = "mapping",
-    oldfiles_directory = false,
-    align = "center",
-    fold_section = false,
-    title = "Basic Commands",
-    margin = 5,
-    content = {
-      { " Find File", "Telescope find_files", "f" },
-      { " Find Word", "Telescope live_grep", "g" },
-      { " Git Status", 'lua require("homescreen").execute_and_close("vert G")', "s" },
-      { " Git Log", 'lua require("homescreen").execute_and_close("vert G log --stat --decorate")', "l" },
-      { " Recent Files", "Telescope oldfiles", "r" },
-      { " New File", "lua require'startup'.new_file()", "<leader>nf" },
-    },
-    highlight = "String",
-    default_color = "",
-    oldfiles_amount = 0,
-  },
-  footer = {
-    type = "text",
-    oldfiles_directory = false,
-    align = "center",
-    fold_section = false,
-    title = "Footer",
-    margin = 5,
-    content = { "" },
-    highlight = "Number",
-    default_color = "",
-    oldfiles_amount = 0,
-  },
-
-  options = {
-    mapping_keys = true,
-    cursor_column = 0.5,
-    empty_lines_between_mappings = true,
-    disable_statuslines = true,
-    paddings = { 1, 3, 3, 0 },
-  },
-  mappings = {
-    execute_command = "<CR>",
-    open_file = "o",
-    open_file_split = "<c-o>",
-    open_section = "<TAB>",
-    open_help = "?",
-  },
-  colors = {
-    background = "#1f2227",
-    folded_section = "#56b6c2",
-  },
-  parts = { "header", "body", "footer" },
+-- Set header
+dashboard.section.header.val = {
+    "                                                     ",
+    "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+    "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+    "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+    "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+    "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+    "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+    "                                                     ",
 }
 
-startup.setup(settings)
+-- Set menu
+dashboard.section.buttons.val = {
+    dashboard.button( "e", "  > New file", ":ene <BAR> startinsert <CR>"),
+    dashboard.button( "f", "  > Find file", ":Telescope find_files<CR>"),
+    dashboard.button( "g", "  > RipGrep", ":Telescope live_grep<CR>"),
+    dashboard.button( "s", "  > Git Status", ":vert G<CR>"),
+    dashboard.button( "l", "  > Git Log", ":vert G log --stat --decorate<CR>"),
+    dashboard.button( "r", "  > Recent", ":Telescope oldfiles<CR>"),
+    dashboard.button( "c", "  > Config", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+    dashboard.button( "q", "  > Quit NVIM", ":qa<CR>"),
+}
 
-return M
+alpha.setup(dashboard.opts)
