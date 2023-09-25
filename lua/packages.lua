@@ -47,4 +47,5 @@ return require('packer').startup(function(use)
     'goolord/alpha-nvim',
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
+  use { 'kosayoda/nvim-lightbulb' }
 end)
