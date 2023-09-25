@@ -35,6 +35,8 @@ vim.o.signcolumn = "yes:2"
 -- treesitter for folds
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- N.B. uncomment this if there are issues with folds, makes it easier to see whats going on 
+--vim.o.foldcolumn = '8'
 -- By default folds are used. This auto expands fold by default, Using "-vim.o.foldlevel = 99" 
 -- was another option but messed with the total fold level. Could have the default fold level
 -- set to something small if that seems reasonable?
