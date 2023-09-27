@@ -48,4 +48,6 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
   use { 'kosayoda/nvim-lightbulb' }
+  -- I use this for helpers, but other libraries already include it
+  use { 'nvim-lua/plenary.nvim '}
 end)
