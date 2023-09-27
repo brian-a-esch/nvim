@@ -1,9 +1,5 @@
 local M = {}
 
-local function dump(tbl)
-  vim.api.nvim_echo({ { vim.inspect(tbl) } }, true, {})
-end
-
 local function make_window(lines)
   local bufnr = vim.api.nvim_create_buf(false, true)
   if bufnr == 0 then
@@ -59,7 +55,7 @@ local function parse_lua_fn(row, col)
       table.insert(param_names, extract_from_buf(0, child))
     end
   end
-  dump(param_names)
+  DUMP(param_names)
 
   return {
     name = name,
