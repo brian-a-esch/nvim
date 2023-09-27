@@ -26,12 +26,12 @@
     like golang or python before ripping out
 
 ** LSP
-   - [ ] Type Heirarchy navigation, up and down the tree. This appears
+   - [X] Type Heirarchy navigation, up and down the tree. This appears
      supported by clangd
      https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#typeHierarchy_supertypes
    - [ ] Inlay hints looks like it got merged, should use with toggle switch
      https://github.com/neovim/neovim/issues/18086
-   - [ ] show when code actions are available, like we do for diagnostics
+   - [X] show when code actions are available, like we do for diagnostics
    - [ ] Display "pending" lsp requests, so I know that something is taking a
      second vs never completing
    - [ ] "Codelens" is a thing that has a "run this function" feature. Could be
