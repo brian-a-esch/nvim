@@ -65,6 +65,13 @@ local SUPER_TYPE = {
   title = "SuperTypes",
 }
 
+local function jump_to_uri(uri, lnum, col)
+  -- jump to location
+  local bufnr = vim.uri_to_bufnr(uri)
+  vim.api.nvim_win_set_buf(0, bufnr)
+  vim.api.nvim_win_set_cursor(0, { lnum, col - 1 })
+end
+
 -- Async function using plenary, needs to be called in async runner context
 local function hierarchy_async(type)
   local name = vim.api.nvim_buf_get_name(0)
@@ -90,9 +97,16 @@ local function hierarchy_async(type)
   assert(not err, err)
   assert(#res == 1)
   res = res[1].result
-  if res == nil then
+  if res == nil or #res == 0 then
     print("No " .. type.lsp_name .. " found")
     return
+  end
+
+  if #res == 1 then
+    local r = res[1]
+    local range_start = r.selectionRange.start
+    jump_to_uri(r.uri, range_start.line + 1, range_start.character + 1)
+    return;
   end
 
   local items = {}
