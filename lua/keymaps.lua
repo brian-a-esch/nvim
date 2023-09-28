@@ -97,9 +97,9 @@ keymap("v", "<leader>y", '"+y')
 keymap({ "n", "v" }, "<leader>p", '"+p')
 keymap({ "n", "v" }, "<leader>P", '"+P')
 
-local fold_cycle = require('fold-cycle')
-fold_cycle.setup()
-keymap("n", "<tab>", fold_cycle.open)
-keymap("n", "<s-tab>", fold_cycle.close_all)
--- I think this is just a more sensible default
-keymap("n", "zC", fold_cycle.close_all)
+--local fold_cycle = require('fold-cycle')
+--fold_cycle.setup()
+--keymap("n", "<tab>", fold_cycle.open)
+--keymap("n", "<s-tab>", fold_cycle.close_all)
+---- I think this is just a more sensible default
+--keymap("n", "zC", fold_cycle.close_all)
