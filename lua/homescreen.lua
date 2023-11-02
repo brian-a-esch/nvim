@@ -23,6 +23,7 @@ dashboard.section.buttons.val = {
   dashboard.button("l", "  > Git Log", ":vert G log --stat --decorate -200 | bd 1 <CR>"),
   dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
   dashboard.button("c", "  > Config", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+  dashboard.button("o", "  > Open Orgmode notes", ":e " .. DEFAULT_ORG_FILE .. "<CR>"),
   dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
 }
 
