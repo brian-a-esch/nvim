@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
+  -- N.B, if we remove this, we need to add a plenary install, since it's used for some custom stuff
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
   use { 'akinsho/toggleterm.nvim', tag = '*' }
 
@@ -48,6 +49,4 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
   use { 'kosayoda/nvim-lightbulb' }
-  -- I use this for helpers, but other libraries already include it
-  use { 'nvim-lua/plenary.nvim '}
 end)
