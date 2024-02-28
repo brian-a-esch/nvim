@@ -9,6 +9,7 @@ require 'lspconfig'.rust_analyzer.setup({
   -- https://rust-analyzer.github.io/manual.html#rustup
   -- https://github.com/rust-lang/rustup/issues/2411
   cmd = { "rustup", "run", "stable", "rust-analyzer" },
+  on_init = require('lsp.general').on_init,
   on_attach = function(client, bufnr)
     general.on_attach(client, bufnr)
 

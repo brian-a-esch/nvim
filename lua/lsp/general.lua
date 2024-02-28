@@ -39,8 +39,6 @@ end
 M.on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  -- Disable this, I prefer the syntax highlighting provided by treesitter
-  client.server_capabilities.semanticTokensProvider = false
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -74,6 +72,12 @@ M.on_attach = function(client, bufnr)
       })
     end
   })
+end
+
+M.on_init = function(client, initialization_result)
+  if client.server_capabilities then
+    client.server_capabilities.semanticTokensProvider = false -- turn off semantic tokens
+  end
 end
 
 return M
