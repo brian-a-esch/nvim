@@ -46,6 +46,7 @@ M.on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   -- This is what it is in clion, maybe change?
   vim.keymap.set('i', '<C-p>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<C-p>', vim.lsp.buf.hover, bufopts)
   -- These are workspace commands. Typically  I just start neovim in a project directory
   -- so these are not needed to manually configure the lsp
   --vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
