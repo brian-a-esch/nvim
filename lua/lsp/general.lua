@@ -35,6 +35,25 @@ M.setup = function()
   vim.diagnostic.config(config)
 end
 
+-- Function to get all floating windows
+local function has_floating_window()
+  local windows = vim.api.nvim_list_wins()
+  for _, win_id in ipairs(windows) do
+    local win_config = vim.api.nvim_win_get_config(win_id)
+    -- A window is considered floating if 'relative' is set to anything other than an empty string
+    if win_config.relative ~= "" then
+      return true
+    end
+  end
+  return false
+end
+
+vim.lsp.handlers["textDocument/hover"] = function (_, result, ctx, config)
+  config = config or {}
+  config.border = "rounded"
+  vim.lsp.handlers.hover(_, result, ctx, config)
+end
+
 -- Language server stuff, should pull into separate files
 M.on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
@@ -65,6 +84,11 @@ M.on_attach = function(client, bufnr)
 
   vim.api.nvim_create_autocmd('CursorHold', {
     callback = function()
+      -- If we have other floating windows, don't open this up. Setting zindex seems to be insufficient,
+      -- specifically for the "hover" preview
+      if has_floating_window() then
+        return
+      end
       vim.diagnostic.open_float({
         scope = 'line',
         -- Keep diagnostics below gitsigns and other popups. Don't know
