@@ -9,5 +9,7 @@ require('lspconfig')['clangd'].setup {
   cmd = {
     "clangd",
     "--background-index",
+    "--header-insertion=never",
+    "--ranking-model=decision_forest",
   },
 }
