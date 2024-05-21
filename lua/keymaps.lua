@@ -103,3 +103,9 @@ keymap({ "n", "v" }, "<leader>P", '"+P')
 --keymap("n", "<s-tab>", fold_cycle.close_all)
 ---- I think this is just a more sensible default
 --keymap("n", "zC", fold_cycle.close_all)
+
+keymap("n", "<leader>cg", function()
+  vim.api.nvim_feedkeys(":AsyncRun git grep -n ", "n", false)
+  vim.cmd(":botright copen 30")
+end, opts)
+
