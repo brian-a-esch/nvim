@@ -6,7 +6,6 @@ DEFAULT_ORG_FILE = '~/.config/nvim/org/default.org'
 orgmode.setup{
   org_default_notes_file = DEFAULT_ORG_FILE,
 }
-orgmode.setup_ts_grammar()
 org_bullets.setup({
   concealcursor = true,
 })
