@@ -41,3 +41,9 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- was another option but messed with the total fold level. Could have the default fold level
 -- set to something small if that seems reasonable?
 vim.o.foldlevel = 99
+
+-- Automatically resize splits to be equal when the terminal is resized
+vim.api.nvim_create_autocmd("VimResized", {
+    pattern = "*",
+    command = "wincmd =",
+})
