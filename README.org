@@ -101,6 +101,10 @@
   installed via `npm install -g typescript typescript-language-server`
 - [pyright](https://github.com/microsoft/pyright)
   installed via `npm install -g pyright`
+- Ran `pip3 install --user neovim`, this installs a neovim python package for
+  the interpretter, can see that this is okay in the :checkheath
+  `provider.python: require("provider.python.health").check()` section. This is needed for Vimspector
+
 
 ** Fonts
    In the `$HOME/tools/` directory I cloned "getnf"

@@ -50,5 +50,5 @@ return require('packer').startup(function(use)
   }
   use { 'kosayoda/nvim-lightbulb' }
 
-  use { 'puremourning/vimspector' }
+  use 'puremourning/vimspector'
 end)
