@@ -36,6 +36,8 @@ return require('packer').startup(function(use)
 
   -- Debugger stuff
   use 'mfussenegger/nvim-dap'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+  use { 'theHamsta/nvim-dap-virtual-text' }
 
   -- Org mode and org bullets. N.B. orgmode uses treesitter for syntax highlighting
   use { 'nvim-orgmode/orgmode' }
@@ -49,6 +51,4 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
   use { 'kosayoda/nvim-lightbulb' }
-
-  use 'puremourning/vimspector'
 end)
