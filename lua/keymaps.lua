@@ -109,3 +109,9 @@ keymap("n", "<leader>cg", function()
   vim.cmd(":botright copen 30")
 end, opts)
 
+-- I would really like this to be done with just <tab> in normal mode, but apparently this also
+-- effects <C-i> (which is used for history navigation), because many terminals interpret 
+-- them as the same input. To solve this in a cross platform & terminal indent way seems hard
+-- https://www.reddit.com/r/neovim/comments/14su13t/how_to_map_tab_but_not_affect_ci/
+-- https://github.com/alacritty/alacritty/issues/4451
+keymap("n", "<leader><tab>", 'za', opts)
