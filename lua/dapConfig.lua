@@ -67,10 +67,14 @@ local opts = { silent = true }
 vim.keymap.set("n", "<F8>", dap.step_over, opts)
 vim.keymap.set("n", "<F7>", dap.step_into, opts)
 vim.keymap.set("n", "<S-F8>", dap.step_out, opts)
+-- Second key mapping, depending on computer used <S-F8> gets inputted as <F20> aka 12 + 8
+vim.keymap.set("n", "<F20>", dap.step_out, opts)
 vim.keymap.set("n", "<F9>", dap.continue, opts)
 -- Second continue keybinding
 vim.keymap.set("n", "<leader>dc", dap.continue, opts)
 vim.keymap.set("n", "<S-F9>", dap.run_to_cursor, opts)
+-- Second key mapping, depending on computer used <S-F9> gets inputted as <F21> aka 12 + 9
+vim.keymap.set("n", "<F21>", dap.run_to_cursor, opts)
 vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, opts)
 vim.keymap.set("n", "<leader>dB", function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, opts)
 vim.keymap.set("n", "<leader>dr", dap.restart, opts)
