@@ -49,3 +49,10 @@ vim.api.nvim_create_autocmd("VimResized", {
 })
 
 vim.cmd('packadd cfilter')
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.ccs",
+  command = "set filetype=ccs"
+})
+vim.cmd('filetype on')
+vim.cmd('filetype plugin on')
