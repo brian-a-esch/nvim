@@ -82,6 +82,12 @@ M.on_attach = function(client, bufnr)
   -- supports that. In normal mode the whole file will be re-formatted
   vim.keymap.set({ 'n', 'v' }, 'gq', '<cmd>lua vim.lsp.buf.format()<CR><ESC>', bufopts)
 
+  -- Default to type hints being on, add toggle option
+  vim.lsp.inlay_hint.enable(true)
+  vim.keymap.set("n", '<leader>a', function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  end)
+
   vim.api.nvim_create_autocmd('CursorHold', {
     callback = function()
       -- If we have other floating windows, don't open this up. Setting zindex seems to be insufficient,

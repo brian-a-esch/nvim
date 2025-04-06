@@ -29,7 +29,7 @@
    - [X] Type Heirarchy navigation, up and down the tree. This appears
      supported by clangd
      https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#typeHierarchy_supertypes
-   - [ ] Inlay hints looks like it got merged, ~will be released in v.10~,
+   - [X] Inlay hints looks like it got merged, ~will be released in v.10~,
      should use with toggle switch
      https://github.com/neovim/neovim/issues/18086
    - [X] show when code actions are available, like we do for diagnostics
