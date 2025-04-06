@@ -1,4 +1,6 @@
 local gs = require('gitsigns')
+local gl = require('gitlinker')
+local gl_actions = require("gitlinker.actions")
 
 local get_blame_sha = function()
   -- So this uses a "buffer variable" which gets set by the current line blame
@@ -51,7 +53,8 @@ gs.setup {
     map('n', '<leader>gu', gs.undo_stage_hunk)
     map('n', '<leader>gR', gs.reset_buffer)
     map('n', '<leader>gp', gs.preview_hunk)
-    map('n', '<leader>gb', function() gs.blame_line { full = true } end)
+    map('n', '<leader>gb', ':Gitsigns blame<CR>')
+    map('n', '<leader>gq', ':Gitsigns setqflist all<CR>')
     map('n', '<leader>gd', function()
       local sha = get_blame_sha()
       if sha == nil then
@@ -63,6 +66,14 @@ gs.setup {
     map('n', '<leader>gD', function() gs.diffthis('~') end)
   end,
 }
+
+gl.setup{
+  -- default mapping to copy to clipboard
+  mappings = "<leader>gl"
+}
+vim.keymap.set('n', '<leader>gL', function()
+  gl.get_buf_range_url('n', { action_callback = gl_actions.open_in_browser })
+end, {silent = true})
 
 local Terminal = require('toggleterm.terminal').Terminal
 local termOpts = { noremap = true, silent = true }
