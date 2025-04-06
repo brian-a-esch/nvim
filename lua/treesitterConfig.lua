@@ -11,5 +11,8 @@ configs.setup({
   autopairs = {
     enable = true,
   },
-  ensure_installed = {'org'}, -- Or run :TSUpdate org
+  -- This got removed when updating, apparently there is no more orgmode treesitter 
+  -- support? I deleted the .so file after updating, and orgmode still works. Leaving this
+  -- call to "ensure_installed" commented out in case I need to re-add
+  --ensure_installed = {'org'}, -- Or run :TSUpdate org
 })
