@@ -5,7 +5,6 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
   use { "catppuccin/nvim", as = "catppuccin" }
-  use { 'akinsho/bufferline.nvim', tag = "v4.*", requires = 'kyazdani42/nvim-web-devicons' }
   use { "kyazdani42/nvim-tree.lua", requires = 'kyazdani42/nvim-web-devicons' }
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -26,7 +25,6 @@ return require('packer').startup(function(use)
   use "lewis6991/gitsigns.nvim"
   use "tpope/vim-fugitive"
   use 'skywind3000/asyncrun.vim'
-  -- On legacy since they're re-writing, consider upgrading when they're done
   use { 'j-hui/fidget.nvim', tag = "v1.*" }
   use 'windwp/nvim-autopairs'
   use 'RRethy/vim-illuminate'
@@ -45,7 +43,6 @@ return require('packer').startup(function(use)
 
   use { 'nvim-treesitter/playground' }
 
-  use { 'jghauser/fold-cycle.nvim' }
   use {
     'goolord/alpha-nvim',
     requires = { 'nvim-tree/nvim-web-devicons' }

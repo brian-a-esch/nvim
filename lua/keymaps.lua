@@ -34,8 +34,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Set up tab movement to be like vimium, the chrome extension
-keymap("n", "J", ":bprevious<CR>", opts)
-keymap("n", "K", ":bnext<CR>", opts)
+--keymap("n", "J", ":bprevious<CR>", opts)
+--keymap("n", "K", ":bnext<CR>", opts)
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
