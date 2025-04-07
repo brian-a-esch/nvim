@@ -70,7 +70,10 @@ gs.setup {
 
 gl.setup{
   -- default mapping to copy to clipboard
-  mappings = "<leader>gl"
+  mappings = "<leader>gl",
+  callbacks = {
+    ["git.drwholdings.com"] = gl_hosts.get_github_type_url,
+  }
 }
 vim.keymap.set('n', '<leader>gL', function()
   gl.get_buf_range_url('n', { action_callback =
