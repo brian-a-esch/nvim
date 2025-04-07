@@ -1,6 +1,7 @@
 local gs = require('gitsigns')
 local gl = require('gitlinker')
 local gl_actions = require("gitlinker.actions")
+local gl_hosts = require("gitlinker.hosts")
 
 local get_blame_sha = function()
   -- So this uses a "buffer variable" which gets set by the current line blame
@@ -72,7 +73,12 @@ gl.setup{
   mappings = "<leader>gl"
 }
 vim.keymap.set('n', '<leader>gL', function()
-  gl.get_buf_range_url('n', { action_callback = gl_actions.open_in_browser })
+  gl.get_buf_range_url('n', { action_callback =
+        function(url)
+          gl_actions.copy_to_clipboard(url)
+          gl_actions.open_in_browser(url)
+        end
+})
 end, {silent = true})
 
 local Terminal = require('toggleterm.terminal').Terminal
