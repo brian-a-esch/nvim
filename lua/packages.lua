@@ -58,6 +58,18 @@ return require('packer').startup(function(use)
     tag="v16.*", -- v17 moves to nvim 0.11, which I am not using yet
   })
 
+  use({
+    'yetone/avante.nvim',
+    branch = 'main',
+    run = 'make',
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      'MunifTanjim/nui.nvim',
+      'MeanderingProgrammer/render-markdown.nvim',
+    }
+  })
+
   use {
     'ruifm/gitlinker.nvim',
     requires = 'nvim-lua/plenary.nvim',
