@@ -54,6 +54,8 @@ return require('packer').startup(function(use)
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      'MeanderingProgrammer/render-markdown.nvim',
+      "echasnovski/mini.diff",
     },
     tag="v16.*", -- v17 moves to nvim 0.11, which I am not using yet
   })
