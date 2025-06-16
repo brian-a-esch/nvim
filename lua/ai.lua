@@ -41,7 +41,7 @@ local function load_file_to_string(path)
     error("Failed to open file " .. path)
   end
 
-  local content = file:read("a")
+  local content = file:read("l")
   file:close()
   return content
 end
@@ -51,7 +51,7 @@ end
 vim.env.OPENAI_API_KEY = load_file_to_string(vim.fs.normalize('~/.azure_ai.key'))
 
 avante.setup({
-  debug = true,
+  --debug = true,
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
   provider = "azure",
   ---@alias Mode "agentic" | "legacy"
@@ -175,5 +175,8 @@ avante.setup({
   suggestion = {
     debounce = 600,
     throttle = 600,
+  },
+  file_selector = {
+    provider = 'telescope',
   },
 })
