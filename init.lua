@@ -19,6 +19,7 @@ require 'orgmodeConfig'
 require 'refactor'
 require 'homescreen'
 require 'codeActions'
+require 'ai'
 
 function DUMP(tbl)
   vim.api.nvim_echo({ { vim.inspect(tbl) } }, true, {})

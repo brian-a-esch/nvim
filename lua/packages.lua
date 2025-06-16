@@ -49,6 +49,15 @@ return require('packer').startup(function(use)
   }
   use { 'kosayoda/nvim-lightbulb' }
 
+  use({
+    "olimorris/codecompanion.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    tag="v16.*", -- v17 moves to nvim 0.11, which I am not using yet
+  })
+
   use {
     'ruifm/gitlinker.nvim',
     requires = 'nvim-lua/plenary.nvim',
