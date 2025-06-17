@@ -23,7 +23,7 @@ codecompanion.setup({
   },
   adapters = {
     openai = function()
-      return require("codecompanion.adapters").extend("openai", {
+      return adapters.extend("openai", {
         env = {
           api_key = "cmd: gpg --batch --quiet --decrypt " .. vim.fs.normalize("~/.openai.key.gpg"),
         },
@@ -34,6 +34,8 @@ codecompanion.setup({
         env = {
           api_key = "cmd: cat " .. vim.fs.normalize("~/.azure_ai.key"),
           endpoint = 'https://azure-openai.drwcloud.com/',
+          api_version = '2025-01-01-preview',
+          deployment = "gpt-4o",
         },
         schema = {
           model = {
@@ -44,9 +46,19 @@ codecompanion.setup({
     end,
   },
   display = {
-    diff = {
-      provider = 'mini_diff'
+    chat = {
+      show_settings = false,
     },
+    diff = {
+      provider = 'mini_diff',
+      enabled = true,
+      close_chat_at = 240,     -- Close an open chat buffer if the total columns of your display are less than...
+      layout = "vertical",     -- vertical|horizontal split for default provider
+      opts = { "internal", "filler", "closeoff", "algorithm:patience", "followwrap", "linematch:120" },
+    },
+  },
+  opts = {
+    --log_level = "TRACE"
   },
 })
 
