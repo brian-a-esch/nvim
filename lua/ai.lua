@@ -2,7 +2,6 @@ local codecompanion = require("codecompanion")
 local adapters = require("codecompanion.adapters")
 local diff = require('mini.diff')
 local markdown = require('render-markdown')
-local avante = require('avante')
 
 markdown.setup({
   file_types = { 'markdown', 'codecompanion' }
