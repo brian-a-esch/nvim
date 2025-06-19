@@ -73,7 +73,7 @@ M.on_attach = function(client, bufnr)
 
   -- Default to type hints being on, add toggle option
   vim.lsp.inlay_hint.enable(true)
-  vim.keymap.set("n", '<leader>a', function()
+  vim.keymap.set("n", '<leader>h', function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
   end)
 
