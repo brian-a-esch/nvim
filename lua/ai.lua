@@ -15,6 +15,11 @@ codecompanion.setup({
   strategies = {
     chat = {
       adapter = 'azure_openai'
+      tools = {
+        opts = {
+          wait_timeout = 10 * 60 * 1000, -- wait_timeout is in ms, default is 30s which is not enough to review changes IMO
+        },
+      },
     },
     inline = {
       adapter = 'azure_openai'
@@ -51,8 +56,8 @@ codecompanion.setup({
     diff = {
       provider = 'mini_diff',
       enabled = true,
-      close_chat_at = 240,     -- Close an open chat buffer if the total columns of your display are less than...
-      layout = "vertical",     -- vertical|horizontal split for default provider
+      close_chat_at = 240, -- Close an open chat buffer if the total columns of your display are less than...
+      layout = "vertical", -- vertical|horizontal split for default provider
       opts = { "internal", "filler", "closeoff", "algorithm:patience", "followwrap", "linematch:120" },
     },
   },
