@@ -29,7 +29,7 @@ PROMPTS_DIR = '~/.config/nvim/prompts/'
 codecompanion.setup({
   strategies = {
     chat = {
-      adapter = 'azure_openai'
+      adapter = 'azure_openai',
       tools = {
         opts = {
           wait_timeout = 10 * 60 * 1000, -- wait_timeout is in ms, default is 30s which is not enough to review changes IMO
@@ -37,7 +37,7 @@ codecompanion.setup({
       },
     },
     inline = {
-      adapter = 'azure_openai'
+      adapter = 'azure_openai',
     },
   },
   adapters = {
