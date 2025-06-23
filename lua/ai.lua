@@ -11,6 +11,21 @@ diff.setup({
   source = diff.gen_source.none()
 })
 
+-- Used for loading prompts which I like to store as markdown
+local function load_file_to_string(orig_path)
+  local path = vim.fs.normalize(orig_path)
+  local file = io.open(path, 'r')
+  if file == nil then
+    error("Failed to open file " .. path)
+  end
+
+  local content = file:read("a")
+  file:close()
+  return content
+end
+
+PROMPTS_DIR = '~/.config/nvim/prompts/'
+
 codecompanion.setup({
   strategies = {
     chat = {
@@ -59,6 +74,67 @@ codecompanion.setup({
       close_chat_at = 240, -- Close an open chat buffer if the total columns of your display are less than...
       layout = "vertical", -- vertical|horizontal split for default provider
       opts = { "internal", "filler", "closeoff", "algorithm:patience", "followwrap", "linematch:120" },
+    },
+  },
+  prompt_library = {
+    ["Generate PRD"] = {
+      strategy = "chat",
+      description = "Prompt to help create a Project Requirements Document",
+      prompts = {
+        {
+          role = "system",
+          content = load_file_to_string(PROMPTS_DIR .. "create-prd.md")
+        },
+        {
+          role = "user",
+          content = 'Please generate a PRD to ',
+        }
+      },
+      opts = {
+        is_slash_cmd = true,
+        short_name = "generate-prd",
+        ignore_system_prompt = true,
+      },
+    },
+    -- TODO it'd be good to add something where we can force ourselves to link the PRD when we run this, then autosubmit
+    ["Generate Tasks from PRD"] = {
+      strategy = "chat",
+      description = "Prompt to help create a list of tasks from a Project Requirements Document",
+      prompts = {
+        {
+          role = "system",
+          content = load_file_to_string(PROMPTS_DIR .. "generate-tasks-from-prd.md")
+        },
+        {
+          role = "user",
+          content = 'Please generate tasks from the  ',
+        }
+      },
+      opts = {
+        is_slash_cmd = true,
+        short_name = "generate-tasks",
+        ignore_system_prompt = true,
+      },
+    },
+    -- TODO it'd be good to add something where we can force ourselves to link the PRD & task list when we run this, then autosubmit
+    ["Execute Tasks from List"] = {
+      strategy = "chat",
+      description = "Prompt to help create a list of tasks from a Project Requirements Document",
+      prompts = {
+        {
+          role = "system",
+          content = load_file_to_string(PROMPTS_DIR .. "execute-task-list.md")
+        },
+        {
+          role = "user",
+          content = 'Execute tasks by rules lined out in Task List Management',
+        }
+      },
+      opts = {
+        is_slash_cmd = true,
+        short_name = "execute-task-list",
+        auto_submit = true,
+      },
     },
   },
   opts = {
