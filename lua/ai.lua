@@ -8,7 +8,32 @@ markdown.setup({
 })
 
 diff.setup({
-  source = diff.gen_source.none()
+  source = diff.gen_source.none(),
+  -- Delays (in ms) defining asynchronous processes
+  delay = {
+    -- How much to wait before update following every text change
+    text_change = 100,
+  },
+
+  -- Module mappings. Use `''` (empty string) to disable one.
+  mappings = {
+    -- Apply hunks inside a visual/operator region
+    apply = '',
+    -- Reset hunks inside a visual/operator region
+    reset = '',
+    -- Hunk range textobject to be used inside operator
+    -- Works also in Visual mode if mapping differs from apply and reset
+    textobject = '',
+    -- Go to hunk range in corresponding direction
+    goto_first = '[H',
+    goto_prev = '[h',
+    goto_next = ']h',
+    goto_last = ']H',
+  },
+  options = {
+    -- wraps the "goto" commands around
+    wrap_goto = true,
+  }
 })
 
 -- Used for loading prompts which I like to store as markdown
