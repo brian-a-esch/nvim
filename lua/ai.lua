@@ -69,7 +69,12 @@ codecompanion.setup({
     openai = function()
       return adapters.extend("openai", {
         env = {
-          api_key = "cmd: gpg --batch --quiet --decrypt " .. vim.fs.normalize("~/.openai.key.gpg"),
+          api_key = "cmd: cat " .. vim.fs.normalize("~/.openai.key"),
+        },
+        schema = {
+          model = {
+            default = "gpt-4.1",
+          },
         },
       })
     end,
