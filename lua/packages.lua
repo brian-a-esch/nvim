@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
 
   use({
     "brian-a-esch/codecompanion.nvim",
-    branches = "diff-hunks",
+    branch = "diff-hunks",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
