@@ -50,7 +50,8 @@ return require('packer').startup(function(use)
   use { 'kosayoda/nvim-lightbulb' }
 
   use({
-    "olimorris/codecompanion.nvim",
+    "brian-a-esch/codecompanion.nvim",
+    branches = "diff-hunks",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
