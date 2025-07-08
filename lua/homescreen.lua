@@ -24,6 +24,10 @@ dashboard.section.buttons.val = {
   dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
   dashboard.button("c", "  > Config", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
   dashboard.button("o", "  > Open Orgmode notes", ":e " .. DEFAULT_ORG_FILE .. "<CR>"),
+  dashboard.button("a", "🤖 > Open CodeCompanion", function()
+    vim.cmd(":CodeCompanionChat")
+    vim.cmd("bd 1")
+  end),
   dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
 }
 
