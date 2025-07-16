@@ -14,11 +14,7 @@ return require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
   use { 'akinsho/toggleterm.nvim', tag = '*' }
 
-  -- Auto completion tools. There are things for snippets, in buffer completion. Not sure I want that atm
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-nvim-lua' }
+  use { 'saghen/blink.cmp', tag = 'v1.*' }
 
   -- Gets a single char color column
   use "lukas-reineke/virt-column.nvim"
@@ -28,9 +24,6 @@ return require('packer').startup(function(use)
   use { 'j-hui/fidget.nvim', tag = "v1.*" }
   use 'windwp/nvim-autopairs'
   use 'RRethy/vim-illuminate'
-
-  use({ "L3MON4D3/LuaSnip", tag = "v1.*" })
-  use { 'saadparwaiz1/cmp_luasnip' }
 
   -- Debugger stuff
   use 'mfussenegger/nvim-dap'
