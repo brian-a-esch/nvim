@@ -3,7 +3,7 @@
 -- For home desktop I used an AUR package
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  use 'neovim/nvim-lspconfig'
+  use { "p00f/clangd_extensions.nvim" }
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "kyazdani42/nvim-tree.lua", requires = 'kyazdani42/nvim-web-devicons' }
   use {
