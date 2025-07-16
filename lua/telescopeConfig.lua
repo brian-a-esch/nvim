@@ -18,7 +18,7 @@ telescope.setup {
     sorting_strategy = "ascending",
     mappings = {
       i = {
-        ["<CR>"] = "select_drop"
+        --["<CR>"] = "select_drop"
       }
     },
   },
