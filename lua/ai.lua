@@ -36,6 +36,29 @@ diff.setup({
   }
 })
 
+local AGENTS_FILES = {}
+
+local function find_agents(path)
+  local function scan(dir)
+    local fd = vim.uv.fs_scandir(dir)
+    if not fd then return end
+    while true do
+      local name, typ = vim.uv.fs_scandir_next(fd)
+      if not name then break end
+      local full_path = dir .. "/" .. name
+      if typ == "directory" then
+        scan(full_path)
+      elseif typ == "file" and name == "AGENTS.md" then
+        table.insert(AGENTS_FILES, full_path)
+      end
+    end
+  end
+  scan(path)
+end
+
+find_agents(vim.fn.getcwd())
+
+
 -- Used for loading prompts which I like to store as markdown
 local function load_file_to_string(orig_path)
   local path = vim.fs.normalize(orig_path)
@@ -58,6 +81,18 @@ codecompanion.setup({
       tools = {
         opts = {
           wait_timeout = 10 * 60 * 1000, -- wait_timeout is in ms, default is 30s which is not enough to review changes IMO
+          default_tools = {
+            'files',
+            'cmd_runner',
+            'grep_search',
+          },
+        },
+        groups = {
+          ["files"] = {
+            opts = {
+              collapse_tools = false,
+            }
+          }
         },
       },
     },
@@ -164,6 +199,20 @@ codecompanion.setup({
         is_slash_cmd = true,
         short_name = "execute-task-list",
         auto_submit = true,
+      },
+    },
+    ["Agents MD Files"] = {
+      strategy = "chat",
+      description = "Adds the AGENTS.md files from the working directory and sub-directories",
+      opts = {
+        is_slash_cmd = true,
+        short_name = "agents-md",
+      },
+      references = {
+        {
+          type = "file",
+          path = AGENTS_FILES,
+        },
       },
     },
   },
