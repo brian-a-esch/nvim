@@ -39,6 +39,12 @@ diff.setup({
 local AGENTS_FILES = {}
 
 local function find_agents(path)
+  local base_agent = vim.fs.joinpath(path, "AGENTS.md")
+  -- If there is no agent file in directory we've loaded, then don't search for agent files
+  if not vim.uv.fs_stat(base_agent) then
+    return
+  end
+
   local function scan(dir)
     local fd = vim.uv.fs_scandir(dir)
     if not fd then return end
