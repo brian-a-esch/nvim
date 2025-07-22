@@ -14,7 +14,13 @@ return require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
   use { 'akinsho/toggleterm.nvim', tag = '*' }
 
-  use { 'saghen/blink.cmp', tag = 'v1.*' }
+  use {
+    'saghen/blink.cmp',
+    tag = 'v1.*',
+    requires = {
+      "mikavilpas/blink-ripgrep.nvim",
+    }
+  }
 
   -- Gets a single char color column
   use "lukas-reineke/virt-column.nvim"
