@@ -40,6 +40,13 @@ blink.setup(
         'ripgrep',
       },
       providers = {
+        lsp = {
+          -- Only show buffer or ripgrep completions if the lsp has nothing to say
+          fallbacks = {
+            'ripgrep',
+            'buffer',
+          },
+        },
         ripgrep = {
           module = "blink-ripgrep",
           name = "Ripgrep",
