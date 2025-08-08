@@ -114,7 +114,7 @@ codecompanion.setup({
         },
         schema = {
           model = {
-            default = "gpt-4.1",
+            default = "gpt-5",
           },
         },
       })
@@ -123,13 +123,13 @@ codecompanion.setup({
       return adapters.extend("azure_openai", {
         env = {
           api_key = "cmd: cat " .. vim.fs.normalize("~/.azure_ai.key"),
-          endpoint = 'https://azure-openai.drwcloud.com/',
+          endpoint = 'https://drw-azureai.drwcloud.com/',
           api_version = '2025-01-01-preview',
-          deployment = "gpt-4.1",
+          deployment = "gpt-5",
         },
         schema = {
           model = {
-            default = 'gpt-4.1',
+            default = 'gpt-5',
           },
         },
       })
