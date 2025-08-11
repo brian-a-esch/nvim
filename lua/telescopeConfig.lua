@@ -72,33 +72,53 @@ local function jump_to_uri(uri, lnum, col)
   vim.api.nvim_win_set_cursor(0, { lnum, col - 1 })
 end
 
+local function first_nonempty_result(results)
+  for _, resp in pairs(results or {}) do
+    if resp and not resp.error and type(resp.result) == "table" and #resp.result > 0 then
+      return resp.result
+    end
+  end
+  return nil
+end
+
+local function flatten_results(results)
+  local out = {}
+  for _, resp in pairs(results or {}) do
+    if resp and not resp.error and type(resp.result) == "table" then
+      for _, v in ipairs(resp.result) do
+        table.insert(out, v)
+      end
+    end
+  end
+  return out
+end
+
+local buf_request_all = async.wrap(vim.lsp.buf_request_all, 4)
+
 -- Async function using plenary, needs to be called in async runner context
-local function hierarchy_async(type)
+local function hierarchy_async(kind)
   local name = vim.api.nvim_buf_get_name(0)
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   row = row - 1 -- Lines are 0 indexed
   local params = {
-    textDocument = {
-      uri = string.format("file://%s", name),
-    },
+    textDocument = { uri = vim.uri_from_fname(name) },
     position = {
       line = row,
       character = col,
     },
   }
 
-  local res, err = async.lsp.buf_request_all(0, "textDocument/prepareTypeHierarchy", params)
-  assert(not err, err)
-  -- Technically multiple clients can be attatched, but I'll wait to see that happen
-  assert(#res == 1)
-  res = res[1].result
+  local prep_results = buf_request_all(0, "textDocument/prepareTypeHierarchy", params)
+  local prepared = first_nonempty_result(prep_results)
+  if not prepared or not prepared[1] then
+    vim.notify("No type hierarchy available here", vim.log.levels.INFO)
+    return
+  end
 
-  res, err = async.lsp.buf_request_all(0, type.lsp_name, { item = res[1] })
-  assert(not err, err)
-  assert(#res == 1)
-  res = res[1].result
-  if res == nil or #res == 0 then
-    print("No " .. type.lsp_name .. " found")
+  local query_results = buf_request_all(0, kind.lsp_name, { item = prepared[1] })
+  local res = flatten_results(query_results)
+  if #res == 0 then
+    vim.notify("No " .. kind.title .. " found", vim.log.levels.INFO)
     return
   end
 
@@ -121,7 +141,7 @@ local function hierarchy_async(type)
 
   -- Display them
   pickers.new({}, {
-    prompt_title = "Subtypes",
+    prompt_title = kind.title,
     finder = finders.new_table {
       results = items,
       entry_maker = make_entry.gen_from_quickfix({}),
