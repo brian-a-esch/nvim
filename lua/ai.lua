@@ -143,7 +143,7 @@ codecompanion.setup({
       provider = 'mini_diff',
       enabled = true,
       close_chat_at = 240, -- Close an open chat buffer if the total columns of your display are less than...
-      layout = "vertical", -- vertical|horizontal split for default provider
+      layout = "horizontal", -- vertical|horizontal split for default provider
       opts = { "internal", "filler", "closeoff", "algorithm:patience", "followwrap", "linematch:120" },
     },
   },
@@ -227,8 +227,10 @@ codecompanion.setup({
   },
 })
 
-vim.keymap.set({ "n", "v" }, "<C-a>", ":CodeCompanion #buffer ", { noremap = true })
-vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>a", function ()
+  codecompanion.toggle()
+  vim.cmd('wincmd =')
+end, { noremap = true, silent = true })
 vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 
 -- Expand 'cc' into 'CodeCompanion' in the command line
