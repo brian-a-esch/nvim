@@ -29,7 +29,11 @@ blink.setup(
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
       documentation = {
-        auto_show = false
+        -- Showing documentation for now, since that will show the entire
+        -- multi line completions from the LLM. There does not seem to be
+        -- a way to configure this option by "provider"
+        auto_show = true,
+        auto_show_delay_ms = 200,
       },
       ghost_text = {
         enabled = true
