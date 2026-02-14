@@ -44,6 +44,7 @@ blink.setup(
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = {
+        'llama',
         'lsp',
         'path',
         'snippets',
@@ -57,6 +58,12 @@ blink.setup(
             'ripgrep',
             'buffer',
           },
+        },
+        llama = {
+          name = "Llama",
+          module = "llamaBlink",
+          async = true,
+          score_offset = 5000,
         },
         ripgrep = {
           module = "blink-ripgrep",
