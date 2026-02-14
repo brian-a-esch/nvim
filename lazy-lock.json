@@ -6,6 +6,7 @@
   "catppuccin": { "branch": "main", "commit": "beaf41a30c26fd7d6c386d383155cbd65dd554cd" },
   "clangd_extensions.nvim": { "branch": "main", "commit": "e84eaea7ca79610d7047fb1c9d74f15bb1c9db34" },
   "codecompanion.nvim": { "branch": "diff-hunks", "commit": "5ab964874898595468a832014325bb27affe4d18" },
+  "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "fidget.nvim": { "branch": "main", "commit": "b61e8af9b8b68ee0ec7da5fb7a8c203aae854f2e" },
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gitsigns.nvim": { "branch": "main", "commit": "9f3c6dd7868bcc116e9c1c1929ce063b978fa519" },

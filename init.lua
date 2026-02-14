@@ -21,6 +21,7 @@ require 'keymaps'
 require("lazy").setup("plugins")
 require 'colorscheme'
 require 'lsp'
+require 'diffviewConfig'
 require 'nvim-treeConfig'
 require 'treesitterConfig'
 require 'telescopeConfig'

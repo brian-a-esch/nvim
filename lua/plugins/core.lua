@@ -38,6 +38,7 @@ return {
   { "lukas-reineke/virt-column.nvim" },
   { "lewis6991/gitsigns.nvim" },
   { "tpope/vim-fugitive" },
+  { "sindrets/diffview.nvim" },
   { "skywind3000/asyncrun.vim" },
   { "j-hui/fidget.nvim", version = "v1.*" },
   { "windwp/nvim-autopairs" },
