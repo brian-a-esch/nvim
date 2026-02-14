@@ -16,6 +16,7 @@ local opts = { silent = true }
 
 -- Sets Leader to space
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
