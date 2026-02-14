@@ -56,3 +56,49 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 })
 vim.cmd('filetype on')
 vim.cmd('filetype plugin on')
+
+-- Enable automatic reread of unchanged buffers, and tracking structures
+vim.o.autoread = true
+local reloading = false
+local reloaded_buffers = {}
+local checktime_group = vim.api.nvim_create_augroup("auto_checktime", { clear = true })
+
+-- Logs when a buffer gets loaded
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+  group = checktime_group,
+  callback = function(args)
+    local buf_name = vim.api.nvim_buf_get_name(args.buf)
+    -- Want to aggregate buffers so we can print all that changed
+    table.insert(reloaded_buffers, buf_name)
+  end,
+})
+
+local function checktime_with_callback()
+  if reloading then return end
+  reloading = true
+
+  -- check all buffers that are different from disk
+  vim.cmd("checktime")
+
+  vim.defer_fn(function()
+    if #reloaded_buffers > 0 then
+      -- "all done" notification
+      vim.notify("Finished reloading buffers:\n" .. table.concat(reloaded_buffers, "\n"), vim.log.levels.INFO)
+      reloaded_buffers = {} -- reset list
+
+      -- In the future
+      -- your global post-reload callback goes here
+      -- e.g., require("my_module").reload_state()
+    end
+    reloading = false
+  end, 0)
+end
+
+vim.api.nvim_create_autocmd(
+  { "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" },
+  {
+    group = checktime_group,
+    callback = checktime_with_callback
+  }
+)
+

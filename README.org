@@ -105,6 +105,13 @@
   the interpretter, can see that this is okay in the :checkheath
   `provider.python: require("provider.python.health").check()` section. This is needed for Vimspector
 
+  For tmux I needed
+  ```
+  # Allows us to listen to FocusGained tmux events
+  set -g focus-events on
+  set -g terminal-overrides ',*:focus-events,on'
+  ```
+
 
 ** Fonts
    In the `$HOME/tools/` directory I cloned "getnf"
