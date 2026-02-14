@@ -17,6 +17,9 @@ require 'orgmodeConfig'
 require 'refactor'
 require 'homescreen'
 require 'codeActions'
+require 'log'
+require 'llama'
+-- llamaBlink is loaded dynamically inside completion
 require 'completion'
 require 'ai'
 
