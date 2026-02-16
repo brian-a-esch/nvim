@@ -16,3 +16,7 @@ configs.setup({
   -- call to "ensure_installed" commented out in case I need to re-add
   --ensure_installed = {'org'}, -- Or run :TSUpdate org
 })
+
+-- Force built-in types to look like regular types. For C++ the builtin types like uint32_t 
+-- can be colored differently than std::vector<x> if this is not set
+vim.api.nvim_set_hl(0, "@type.builtin.cpp", { link = "Type" })
