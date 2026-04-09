@@ -24,8 +24,12 @@ local function on_attach(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   -- This is what it is in clion, maybe change?
-  vim.keymap.set('i', '<C-p>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<C-p>', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('i', '<C-p>', function ()
+    vim.lsp.buf.signature_help({ border = "rounded" })
+  end, bufopts)
+  vim.keymap.set('n', '<C-p>', function()
+    vim.lsp.buf.hover({ border = "rounded" })
+  end, bufopts)
   -- These are workspace commands. Typically  I just start neovim in a project directory
   -- so these are not needed to manually configure the lsp
   --vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -68,6 +72,10 @@ end
 -- Sets up general configs. Specific configs for each language server override the defaults
 vim.lsp.config("*", {
   root_markers = { '.git' },
+  handlers = {
+    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+  }
 })
 
 vim.lsp.config('clangd', {
