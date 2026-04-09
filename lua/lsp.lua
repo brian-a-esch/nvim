@@ -72,10 +72,6 @@ end
 -- Sets up general configs. Specific configs for each language server override the defaults
 vim.lsp.config("*", {
   root_markers = { '.git' },
-  handlers = {
-    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
-  }
 })
 
 vim.lsp.config('clangd', {
