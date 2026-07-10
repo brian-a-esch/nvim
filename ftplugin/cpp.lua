@@ -4,7 +4,7 @@
 -- like we can for python or golang
 local home = os.getenv('HOME')
 local four_space_projects = {
-  home .. '/test',
+  home .. '/git/algo/hippo',
 }
 local filename = vim.api.nvim_buf_get_name(0)
 
