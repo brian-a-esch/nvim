@@ -42,6 +42,9 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- set to something small if that seems reasonable?
 vim.o.foldlevel = 99
 
+-- More context around diffs
+vim.opt.diffopt:append("context:30")
+
 -- Automatically resize splits to be equal when the terminal is resized
 vim.api.nvim_create_autocmd("VimResized", {
     pattern = "*",
