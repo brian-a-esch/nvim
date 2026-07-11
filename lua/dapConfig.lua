@@ -3,38 +3,24 @@ local dapui = require('dapui')
 local virt = require("nvim-dap-virtual-text")
 local vscode = require('dap.ext.vscode')
 
-dap.set_log_level('TRACE')
-dap.adapters.gdb = {
+dap.adapters.cpp = {
   type = 'executable',
-  -- Had to build gdb, 14.1 is the first to support DAP protocol, and ubuntu system has 12.1
-  command = vim.env.HOME .. '/tools/gdb/gdb-15.2/gdb/gdb',
-  args = {
-     "--interpreter=dap",
-     "--data-directory=" .. vim.env.HOME .. '/tools/gdb/gdb-15.2/gdb/data-directory',
-     "--eval-command",
-     "set print pretty on",
-     --"--eval-command",
-     --"set debug dap-log-file " .. vim.fn.stdpath('cache') .. "/dap-gdb-user.log",
-     --"--eval-command",
-     --"set debug dap-log-level 2",
-  }
+  command = '/usr/bin/lldb-vscode-14', -- must be absolute
+  name = 'lldb',
 }
 
 dap.configurations.cpp = {
   {
-    name = 'cpp-test',
-    type = 'gdb',
+    type = 'cpp',
     request = 'launch',
-    console = "internalConsole",
-    --stopAtBeginningOfMainSubprogram = false,
+    name = 'LLDB',
     -- TODO this is silly
-    --program = vim.env.HOME .. '/git/algo/heimdall/out/dbg/sapphirerapids/test/run_tests',
-    program = '/home/besch/git/algo/heimdall/out/dbg/sapphirerapids/test/run_tests',
-    cwd = '${workspaceFolder}',
-    args = {
-      "--gtest_filter=SessionHopperManager*",
-    }
+    program = '/home/besch/git/algo/hippo/out/cascadelake/dbg/test/run_tests',
   },
+  {
+    type = 'cpp',
+    request = 'attach',
+  }
 }
 
 dap.adapters.python = {
@@ -56,8 +42,6 @@ dap.configurations.python = {
     -- cwd = "",
   }
 }
-
--- TODO consider this to store last run config https://github.com/mfussenegger/nvim-dap/issues/1025#issuecomment-1695852355
 
 local function open_launch_json()
   -- Just check local directory

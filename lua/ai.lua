@@ -125,17 +125,16 @@ codecompanion.setup({
           api_key = "cmd: cat " .. vim.fs.normalize("~/.azure_ai.key"),
           endpoint = 'https://drw-azureai.drwcloud.com/',
           api_version = '2025-01-01-preview',
-          deployment = "gpt-5-chat",
+          deployment = "gpt-5",
         },
         schema = {
           model = {
-            default = 'gpt-5-chat',
+            default = 'gpt-5',
           },
         },
       })
     end,
   },
-  -- "baseURL": "https://drw-azureai.drwcloud.com/openai/deployments/",
   display = {
     chat = {
       show_settings = true,

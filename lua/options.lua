@@ -61,34 +61,12 @@ vim.cmd('filetype plugin on')
 vim.o.autoread = true
 local reloading = false
 local reloaded_buffers = {}
-local previously_loaded = {} -- tracks buffers we've seen at least once, so first-open doesn't count as "reload"
 local checktime_group = vim.api.nvim_create_augroup("auto_checktime", { clear = true })
 
--- Mark buffers as "known" once they have been fully read
-vim.api.nvim_create_autocmd("BufReadPost", {
-  group = checktime_group,
-  callback = function(args)
-    previously_loaded[args.buf] = true
-  end,
-})
-
--- Clean up when a buffer is deleted so the table doesn't grow unbounded
-vim.api.nvim_create_autocmd("BufDelete", {
-  group = checktime_group,
-  callback = function(args)
-    previously_loaded[args.buf] = nil
-  end,
-})
-
--- Logs when a buffer gets reloaded from disk
+-- Logs when a buffer gets loaded
 vim.api.nvim_create_autocmd("FileChangedShellPost", {
   group = checktime_group,
   callback = function(args)
-    -- Only notify for buffers we had already loaded once; skip first-time opens
-    if not previously_loaded[args.buf] then
-      previously_loaded[args.buf] = true
-      return
-    end
     local buf_name = vim.api.nvim_buf_get_name(args.buf)
     -- Want to aggregate buffers so we can print all that changed
     table.insert(reloaded_buffers, buf_name)
