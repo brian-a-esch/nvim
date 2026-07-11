@@ -83,4 +83,18 @@ return {
     "ruifm/gitlinker.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
+  -- Diffs (nvim-treesitter highlight for fugative)
+  {
+    'barrettruth/diffs.nvim',
+    init = function()
+      vim.g.diffs = {
+        integrations = {
+          fugitive = true,
+          neogit = false,
+          neojj = false,
+          gitsigns = true,
+        }
+      }
+    end,
+  }
 }
