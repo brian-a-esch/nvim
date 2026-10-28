@@ -83,7 +83,7 @@ keymap("n", "<leader>gfh",
     local filename = vim.api.nvim_buf_get_name(0) -- 0 is current
     return ":vert G log --stat --decorate -200 " .. filename .. "<CR>"
   end, { expr = true, silent = true })
-keymap("n", "<leader>gg", ":vert G<CR>", opts)
+keymap("n", "<leader>gg", ":vert G | horizontal wincmd =<CR>", opts)
 
 -- Refactor tool
 keymap("n", "<leader>r", function ()
