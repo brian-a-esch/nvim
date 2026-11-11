@@ -15,6 +15,22 @@ local get_blame_sha = function()
   return sha
 end
 
+-- Gitsigns writes to the index behind fugitive's back, so open :G status
+-- buffers don't notice until we fire FugitiveChanged ourselves.
+local function refresh_fugitive()
+  vim.schedule(function()
+    if vim.fn.exists('*fugitive#DidChange') == 1 then
+      vim.fn['fugitive#DidChange']()
+    else
+      vim.cmd('silent! doautocmd User FugitiveChanged')
+    end
+  end)
+end
+
+local function visual_range()
+  return { vim.fn.line('.'), vim.fn.line('v') }
+end
+
 gs.setup {
   current_line_blame = true,
   current_line_blame_opts = {
@@ -37,21 +53,22 @@ gs.setup {
     -- Navigation
     map('n', ']g', function()
       if vim.wo.diff then return ']g' end
-      vim.schedule(function() gs.next_hunk() end)
+      vim.schedule(function() gs.nav_hunk("next", { target = "all" }) end)
       return '<Ignore>'
     end, { expr = true })
 
     map('n', '[g', function()
       if vim.wo.diff then return '[g' end
-      vim.schedule(function() gs.prev_hunk() end)
+      vim.schedule(function() gs.nav_hunk("prev", { target = "all" }) end)
       return '<Ignore>'
     end, { expr = true })
 
     -- Actions
-    map({ 'n', 'v' }, '<leader>gs', ':Gitsigns stage_hunk<CR>')
+    map('n', '<leader>gs', function() gs.stage_hunk(nil, nil, refresh_fugitive) end)
+    map('v', '<leader>gs', function() gs.stage_hunk(visual_range(), nil, refresh_fugitive) end)
     map({ 'n', 'v' }, '<leader>gr', ':Gitsigns reset_hunk<CR>')
-    map('n', '<leader>gS', gs.stage_buffer)
-    map('n', '<leader>gu', gs.undo_stage_hunk)
+    map('n', '<leader>gS', function() gs.stage_buffer(refresh_fugitive) end)
+    map('n', '<leader>gu', function() gs.undo_stage_hunk(refresh_fugitive) end)
     map('n', '<leader>gR', gs.reset_buffer)
     map('n', '<leader>gp', gs.preview_hunk)
     map('n', '<leader>gb', ':Gitsigns blame<CR>')
