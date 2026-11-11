@@ -13,6 +13,13 @@ local function has_floating_window()
   return false
 end
 
+-- Enable once at startup rather than in on_attach: enable() without a bufnr is
+-- global, so calling it on every attach would undo a <leader>h toggle-off.
+vim.lsp.inlay_hint.enable(true)
+vim.keymap.set("n", '<leader>h', function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end)
+
 -- Language server stuff, should pull into separate files
 local function on_attach(client, bufnr)
   if client.server_capabilities then
@@ -45,12 +52,6 @@ local function on_attach(client, bufnr)
   -- In visual mode it will select the last highlighted and format that range, if the lsp
   -- supports that. In normal mode the whole file will be re-formatted
   vim.keymap.set({ 'n', 'v' }, 'gq', '<cmd>lua vim.lsp.buf.format()<CR><ESC>', bufopts)
-
-  -- Default to type hints being on, add toggle option
-  vim.lsp.inlay_hint.enable(true)
-  vim.keymap.set("n", '<leader>h', function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-  end)
 
   vim.api.nvim_create_autocmd('CursorHold', {
     callback = function()
